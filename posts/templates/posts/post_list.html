@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversations</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Conversations</h1>
+        {% for post in post_list %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ post.title }}</h5>
+                <p class="card-text">{{ post.author }} | {{ post.created_at }}</p>
+                <p class="card-text">{{ post.content }}</p>
+                <p class="card-text">Likes: {{ post.likes.count }} | Comments: {{ post.comments.count }} </p>
+            </div>
+            {% if post.photo %}
+            <img src=" {{ post.photo.url }}" class="card-img-bottom img-thumbnail" alt="Post Image">
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
