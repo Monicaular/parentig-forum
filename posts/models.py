@@ -21,7 +21,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     photo = models.ImageField(upload_to='post_photos/', blank=True, null=True)
-    age = models.IntegerField(choices=[(0, '0-2 years'), (1, '2-4 years'), (2, 'Above 4 years')], default=0)
+    age = models.IntegerField(choices=[(0, '0-2 years'), (1, '2-4 years'), (2, 'Above 4 years'), (3, 'Teenagers')], default=0)
     tags = models.ManyToManyField(Tag)
     likes = models.ManyToManyField(User, related_name="post_likes", blank=True)
     categories = models.CharField(max_length=100, choices=[
@@ -31,6 +31,9 @@ class Post(models.Model):
         ("Breastfeeding", "Breastfeeding"),
         ("Parental Separation", "Parental Separation"),
         ("Home Organization", "Home Organization"),
+        ("Sleeping Patterns", "Sleeping Patterns"),
+        ("Behavioural Issues", "Behavioural Issues"),
+        ("Gentle Parenting", "Gentle Parenting"),
     ], default="Feeding & Nutrition")
 
     class Meta:
