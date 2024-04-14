@@ -29,7 +29,7 @@ def create_post(request):
             post = form.save(commit=False)
             post.author = request.user
             post.save()
-            return redirect('post_detail', post_id=post.id)
+            return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm()
     return render(request, 'posts/create_post.html', {'form': form})
