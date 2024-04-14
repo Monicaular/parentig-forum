@@ -1,4 +1,6 @@
 {% url 'home' as home_url %}
+{% url 'post_list' as post_list_url %}
+{% url 'rules' as rules_url %}
 
 {% load static %}
 
@@ -52,7 +54,7 @@
               About
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Rules</a></li>
+              <li><a class="dropdown-item" href="{% url 'rules' %}">Rules</a></li>
               <li><a class="dropdown-item" href="#">Resources</a></li>
               <li>
                 <hr class="dropdown-divider">

@@ -18,3 +18,8 @@ def post_detail(request, pk):
         "posts/post_detail.html",
         {"post": post},
     )
+
+def rules_view(request):
+    return render(request, 
+    'posts/rules.html')
+  
