@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Tag, Comment, Resource
+from .models import Post, Tag, Comment, Resource, ResourceLink
 
 
 @admin.register(Post)
@@ -21,3 +21,4 @@ class CommentAdmin(admin.ModelAdmin):
     search_fields = ('content',)
 
 admin.site.register(Resource)
+admin.site.register(ResourceLink)

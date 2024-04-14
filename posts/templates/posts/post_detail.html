@@ -12,8 +12,6 @@
             <p class="card-text">{{ post.content | safe }}</p>
             {% if post.photo %}
             <img src="{{ post.photo.url }}" class="card-img-bottom" alt="{{ post.title }}">
-            {% else %}
-            <img src="{% static 'images/peek-a-boo.jpg' %}" class="card-img-bottom" alt="Post Image">
             {% endif %}
             <button type="button" class="btn btn-outline-primary btn-sm like-btn">Like</button>
             <button class="btn btn-outline-secondary btn-sm edit-btn">Edit</button>

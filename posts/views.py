@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, TemplateView
-from .models import Post
+from django.http import HttpResponse
+from .models import Post, Resource, ResourceLink
 
 class PostsView(ListView):
     queryset = Post.objects.all().order_by("-created_at")
@@ -13,6 +14,7 @@ class HomeView(TemplateView):
 def post_detail(request, pk):
     queryset = Post.objects.all()
     post = get_object_or_404(queryset, pk=pk)
+    
     return render(
         request,
         "posts/post_detail.html",
@@ -22,4 +24,15 @@ def post_detail(request, pk):
 def rules_view(request):
     return render(request, 
     'posts/rules.html')
-  
+
+def resources(request):
+    resources = Resource.objects.all()
+    links = ResourceLink.objects.all()
+    
+    return render(
+    request,
+    'posts/resources.html',
+    {'resources': resources,
+    'links': links
+    },
+)

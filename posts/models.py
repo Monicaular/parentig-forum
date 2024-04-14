@@ -71,6 +71,15 @@ class Resource(models.Model):
     name = models.CharField(max_length=100)
     file = CloudinaryField('file')
     description = models.TextField()
+    image = CloudinaryField('image', blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+
+class ResourceLink(models.Model):
+    name = models.CharField(max_length=100)
+    url = models.URLField(max_length=200)
 
     def __str__(self):
         return self.name
