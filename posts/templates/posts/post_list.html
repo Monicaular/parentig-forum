@@ -4,6 +4,12 @@
 {% block content %}
 
 <div class="container">
+    <!-- Create a New Post button -->
+    <div class="row mb-3">
+        <div class="col-lg-12 text-right">
+            <a href="{% url 'create_post' %}" class="btn btn-primary">Click to ask a question</a>
+        </div>
+    </div>
     <h1>Conversations</h1>
     {% for post in post_list %}
     <div class="card mb-3">

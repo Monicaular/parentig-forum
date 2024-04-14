@@ -1,7 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, TemplateView
 from django.http import HttpResponse
 from .models import Post, Resource, ResourceLink
+from .forms import PostForm
 
 class PostsView(ListView):
     queryset = Post.objects.all().order_by("-created_at")
@@ -20,6 +21,18 @@ def post_detail(request, pk):
         "posts/post_detail.html",
         {"post": post},
     )
+
+def create_post(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
+            return redirect('post_detail', post_id=post.id)
+    else:
+        form = PostForm()
+    return render(request, 'posts/create_post.html', {'form': form})
 
 def rules_view(request):
     return render(request, 
