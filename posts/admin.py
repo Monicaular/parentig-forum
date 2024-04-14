@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Tag, Comment
+from .models import Post, Tag, Comment, Resource
 
 
 @admin.register(Post)
@@ -20,3 +20,4 @@ class CommentAdmin(admin.ModelAdmin):
     list_filter = ('author', 'created_at')
     search_fields = ('content',)
 
+admin.site.register(Resource)

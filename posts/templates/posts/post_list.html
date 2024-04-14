@@ -14,7 +14,9 @@
             <p class="card-text">Likes: {{ post.likes.count }} | Comments: {{ post.comments.count }} </p>
         </div>
         {% if post.photo %}
-        <img src=" {{ post.photo.url }}" class="card-img-bottom img-thumbnail" alt="Post Image">
+        <img class="card-img-top" src="{{ post.photo.url }}" alt="{{ post.title }}">
+        {% else %}
+        <img class="card-img-top" src="{% static 'images/peek-a-boo.jpg' %}" alt="placeholder image">
         {% endif %}
     </div>
     {% endfor %}
@@ -38,4 +40,3 @@
 </div>
 
 {% endblock %}
-
