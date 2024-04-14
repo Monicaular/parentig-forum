@@ -47,6 +47,14 @@ def edit_post(request, pk):
     return render(request, 'posts/edit_post.html', {'form': form})
 
 
+def delete_post(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == 'POST':
+        post.delete()
+        return redirect('post_list')
+    return redirect('post_detail', pk=pk)
+
+
 def rules_view(request):
     return render(request, 
     'posts/rules.html')
