@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, TemplateView
 from django.http import HttpResponse
+from django.contrib import messages
 from .models import Post, Resource, ResourceLink
 from .forms import PostForm
 
@@ -9,12 +10,14 @@ class PostsView(ListView):
     template_name = "posts/post_list.html"
     paginate_by = 4
 
+
 class HomeView(TemplateView):
     template_name = 'posts/index.html'
 
 def post_detail(request, pk):
     queryset = Post.objects.all()
     post = get_object_or_404(queryset, pk=pk)
+
     
     return render(
         request,

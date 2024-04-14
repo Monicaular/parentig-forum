@@ -40,15 +40,6 @@ class Post(models.Model):
     class Meta:
         ordering = ["-created_at"]
 
-    def __str__(self):
-        return f"{self.title} | {self.author}"
-
-    def save(self, *args, **kwargs):
-        if self.tags:
-            self.tags = ','.join(['#' + tag.strip() for tag in self.tags.split(',')])
-        super(Post, self).save(*args, **kwargs)
-
-
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="commenter")
