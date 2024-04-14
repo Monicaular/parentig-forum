@@ -34,6 +34,19 @@ def create_post(request):
         form = PostForm()
     return render(request, 'posts/create_post.html', {'form': form})
 
+
+def edit_post(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect('post_detail', pk=post.pk)
+    else:
+        form = PostForm(instance=post)
+    return render(request, 'posts/edit_post.html', {'form': form})
+
+
 def rules_view(request):
     return render(request, 
     'posts/rules.html')
