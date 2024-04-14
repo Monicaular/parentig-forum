@@ -14,8 +14,10 @@
             <img src="{{ post.photo.url }}" class="card-img-bottom" alt="{{ post.title }}">
             {% endif %}
             <button type="button" class="btn btn-outline-primary btn-sm like-btn">Like</button>
+            {% if user.is_authenticated and post.author == user %}
             <a href="{% url 'edit_post' pk=post.pk %}" class="btn btn-outline-secondary btn-sm">Edit</a>
             <button class="btn btn-outline-secondary btn-sm delete-btn">Delete</button>
+            {% endif %}
         </div>
     </div>
 </div>

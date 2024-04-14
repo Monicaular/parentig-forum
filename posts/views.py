@@ -22,6 +22,7 @@ def post_detail(request, pk):
         {"post": post},
     )
 
+
 def create_post(request):
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
@@ -35,6 +36,7 @@ def create_post(request):
     return render(request, 'posts/create_post.html', {'form': form})
 
 
+
 def edit_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == 'POST':
@@ -45,6 +47,7 @@ def edit_post(request, pk):
     else:
         form = PostForm(instance=post)
     return render(request, 'posts/edit_post.html', {'form': form})
+
 
 
 def delete_post(request, pk):
