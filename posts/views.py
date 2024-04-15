@@ -3,7 +3,7 @@ from django.views.generic import ListView, TemplateView
 from django.http import HttpResponse
 from django.contrib import messages
 from .models import Post, Resource, ResourceLink
-from .forms import PostForm
+from .forms import PostForm, ContactForm
 
 class PostsView(ListView):
     queryset = Post.objects.all().order_by("-created_at")
@@ -86,3 +86,11 @@ def resources(request):
     'links': links
     },
 )
+
+def contact_us(request):
+    contact_form = ContactForm()
+    return render(
+        request,
+        "posts/contact.html",
+        {'contact_form': contact_form },
+    )

@@ -2,9 +2,12 @@
 {% url 'post_list' as post_list_url %}
 {% url 'rules' as rules_url %}
 {% url 'resources' as resources_url %}
+{% url 'contact' as contact_url %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
+
+{% load crispy_forms_tags %}
 
 {% load static %}
 
@@ -100,7 +103,7 @@
     <p>&copy; 2024 Monica Iancu</p>
     <a href="https://www.linkedin.com/in/monica-iancu-362825137/"><i class="fa-brands fa-linkedin"></i></a>
     <a href="https://github.com/Monicaular"><i class="fa-brands fa-square-github"></i></a>
-    <a href="#"><i class="fa-solid fa-square-phone-flip"></i> Contact Us</a>
+    <a href="{% url 'contact' %}"><i class="fa-solid fa-square-phone-flip"></i> Contact Us</a>
   </div>
   </footer>
   <!-- Bootstrap JS -->

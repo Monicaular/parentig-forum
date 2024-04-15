@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-12 col-md-6 my-5">
+        <h5>Contact Us</h5>
+        <p>If you have any suggestions for improving our content or if any users have been disrespectful or violated
+            group rules, please don't hesitate to reach out to us. We take these matters seriously and will address them
+            promptly. Your feedback is valuable in helping us maintain a positive and respectful community environment.
+        </p>
+        {% load crispy_forms_tags %}
+        <form method="post">
+            {{ contact_form|crispy }}
+            {% csrf_token %}
+            <button class="btn btn-secondary" type="submit">Submit</button>
+        </form>
+
+    </div>
+</div>
+
+{% endblock content %}
