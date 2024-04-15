@@ -40,6 +40,7 @@ def create_post(request):
 
 def edit_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
+
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
@@ -52,11 +53,23 @@ def edit_post(request, pk):
 
 def delete_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
+
     if request.method == 'POST':
         post.delete()
         return redirect('post_list')
     return redirect('post_detail', pk=pk)
 
+
+def like_post(request, post_id):
+    post = Post.objects.get(id=post_id)
+    if request.user.is_authenticated:
+        if post.likes.filter(id=request.user.id).exists():
+            post.likes.remove(request.user)
+            messages.success(request, "Post unliked!")
+        else:
+            post.likes.add(request.user)
+            messages.success(request, "Post liked!")
+    return redirect('post_detail', pk=post_id)
 
 def rules_view(request):
     return render(request, 

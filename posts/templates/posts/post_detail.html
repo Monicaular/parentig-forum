@@ -13,9 +13,31 @@
             {% if post.photo %}
             <img src="{{ post.photo.url }}" class="card-img-bottom" alt="{{ post.title }}">
             {% endif %}
-            <button type="button" class="btn btn-outline-primary btn-sm like-btn">Like</button>
+            {% if user.is_authenticated %}
+            {% if user in post.likes.all %}
+            <form action="{% url 'like_post' post.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Unlike</button>
+            </form>
+            {% else %}
+            <form action="{% url 'like_post' post.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Like</button>
+            </form>
+            {% endif %}
+            {% for message in messages.get_messages %}
+            <div>{{ message }}</div>
+            {% endfor %}
+            {% else %}
+            <p>Please <a href="{% url 'account_login' %}">log in</a> to like this post.</p>
+            {% endif %}
+            {% if user.is_authenticated and user == post.author %}
             <a href="{% url 'edit_post' pk=post.pk %}" class="btn btn-outline-secondary btn-sm">Edit</a>
             <button class="btn btn-outline-secondary btn-sm delete-btn">Delete</button>
+            {% else %}
+            <a href="#" class="btn btn-outline-secondary btn-sm disabled" disabled>Edit</a>
+            <button class="btn btn-outline-secondary btn-sm delete-btn disabled" disabled>Delete</button>
+            {% endif %}
         </div>
     </div>
 </div>
@@ -46,5 +68,3 @@
 {% block extras %}
 <script src="{% static 'js/posts.js' %}"></script>
 {% endblock %}
-
-
