@@ -3,7 +3,7 @@ from django.views.generic import ListView, TemplateView
 from django.http import HttpResponse
 from django.contrib import messages
 from .models import Post, Resource, ResourceLink
-from .forms import PostForm, ContactForm
+from .forms import PostForm, ContactForm, CommentForm
 
 class PostsView(ListView):
     queryset = Post.objects.all().order_by("-created_at")
@@ -17,12 +17,32 @@ class HomeView(TemplateView):
 def post_detail(request, pk):
     queryset = Post.objects.all()
     post = get_object_or_404(queryset, pk=pk)
+    comments = post.comments.all().order_by("-created_at")
+    comment_count = post.comments.count()
 
-    
+    comment_form = CommentForm()
+
+    if request.method == "POST":
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.author = request.user
+            comment.post = post
+            comment.save()
+            comment_form = CommentForm()
+            messages.success(request, 'Your comment has been posted successfully!')
+            return redirect(request.path)
+        else:
+            messages.error(request, 'There was an error posting your comment. Please try again.')
+
     return render(
         request,
         "posts/post_detail.html",
-        {"post": post},
+        {"post": post,
+        "comments": comments,
+        "comment_count": comment_count,
+        "comment_form": comment_form,
+        },
     )
 
 def create_post(request):

@@ -61,7 +61,7 @@ class Comment(models.Model):
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    photo = CloudinaryField('image', default='placeholder')
+    photo = CloudinaryField('image', blank=True, null=True)
     likes = models.ManyToManyField(User, related_name="comment_likes", blank=True)
 
     def __str__(self):
@@ -75,7 +75,7 @@ class Comment(models.Model):
         self.delete()
 
     class Meta:
-        ordering = ["created_at"]
+        ordering = ["-created_at"]
 
 
 class Resource(models.Model):
