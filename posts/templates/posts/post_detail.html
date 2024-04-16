@@ -11,32 +11,30 @@
             </p>
             <p class="card-text">{{ post.content | safe }}</p>
             {% if post.photo %}
-            <img src="{{ post.photo.url }}" class="card-img-bottom" alt="{{ post.title }}">
+                <img src="{{ post.photo.url }}" class="card-img-bottom" alt="{{ post.title }}">
             {% endif %}
-            {% if user.is_authenticated %}
-            {% if user in post.likes.all %}
-            <form action="{% url 'like_post' post.id %}" method="post">
-                {% csrf_token %}
-                <button type="submit">Unlike</button>
-            </form>
+            {% if user.is_authenticated and user in post.likes.all %}
+                <form id="unlike-form" action="{% url 'like_post' post.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Unlike</button>
+                </form>
+            {% elif user.is_authenticated %}
+                <form id="like-form" action="{% url 'like_post' post.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Like</button>
+                </form>
             {% else %}
-            <form action="{% url 'like_post' post.id %}" method="post">
-                {% csrf_token %}
-                <button type="submit">Like</button>
-            </form>
+                <p>Please <a href="{% url 'account_login' %}">log in</a> to like this post.</p>
             {% endif %}
-            {% for message in messages.get_messages %}
-            <div>{{ message }}</div>
+            {% for message in messages %}
+                <div id="like-message" ">{{ message }}</div>
             {% endfor %}
-            {% else %}
-            <p>Please <a href="{% url 'account_login' %}">log in</a> to like this post.</p>
-            {% endif %}
             {% if user.is_authenticated and user == post.author %}
-            <a href="{% url 'edit_post' pk=post.pk %}" class="btn btn-outline-secondary btn-sm">Edit</a>
-            <button class="btn btn-outline-secondary btn-sm delete-btn">Delete</button>
+                <a href="{% url 'edit_post' pk=post.pk %}" class="btn btn-outline-secondary btn-sm">Edit</a>
+                <button class="btn btn-outline-secondary btn-sm delete-btn">Delete</button>
             {% else %}
-            <a href="#" class="btn btn-outline-secondary btn-sm disabled" disabled>Edit</a>
-            <button class="btn btn-outline-secondary btn-sm delete-btn disabled" disabled>Delete</button>
+                <a href="#" class="btn btn-outline-secondary btn-sm disabled" disabled>Edit</a>
+                <button class="btn btn-outline-secondary btn-sm delete-btn disabled" disabled>Delete</button>
             {% endif %}
         </div>
     </div>

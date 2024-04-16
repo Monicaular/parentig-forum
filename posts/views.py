@@ -65,10 +65,10 @@ def like_post(request, post_id):
     if request.user.is_authenticated:
         if post.likes.filter(id=request.user.id).exists():
             post.likes.remove(request.user)
-            messages.success(request, "Post unliked!")
+            messages.add_message(request, messages.INFO, "You unliked this!")
         else:
             post.likes.add(request.user)
-            messages.success(request, "Post liked!")
+            messages.add_message(request, messages.INFO, "You liked this!")
     return redirect('post_detail', pk=post_id)
 
 def rules_view(request):
@@ -88,7 +88,15 @@ def resources(request):
 )
 
 def contact_us(request):
-    contact_form = ContactForm()
+    if request.method == 'POST':
+        contact_form = ContactForm(data=request.POST)
+        if contact_form.is_valid():
+            contact_form.save()
+            messages.success(request, "Your contact request has been submitted successfully!")
+            return redirect('contact')
+    else:
+        contact_form = ContactForm()
+
     return render(
         request,
         "posts/contact.html",
