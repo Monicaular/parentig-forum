@@ -5,6 +5,13 @@
 
 {% block content %}
 <div class="container mt-4">
+    {% if messages %}
+    <div class="message-container">
+        {% for message in messages %}
+        <div class="success-message error-message">{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">{{ post.title }}</h5>
@@ -28,9 +35,6 @@
             {% else %}
                 <p>Please <a href="{% url 'account_login' %}">log in</a> to like this post.</p>
             {% endif %}
-            {% for message in messages %}
-                <div id="like-message" ">{{ message }}</div>
-            {% endfor %}
             {% if user.is_authenticated and user == post.author %}
                 <a href="{% url 'edit_post' pk=post.pk %}" class="btn btn-outline-secondary btn-sm">Edit</a>
                 <button class="btn btn-outline-secondary btn-sm delete-btn">Delete</button>
@@ -89,8 +93,8 @@
             {% endif %}
             <button type="button" class="btn btn-outline-primary btn-sm like-btn">Like</button>
             {% if user.is_authenticated and comment.author == user %}
-            <button class="btn btn-outline-secondary btn-sm edit-btn" comment_id="{{ comment.id }}">Edit</button>
-            <button class="btn btn-outline-secondary btn-sm delete-btn" comment_id="{{ comment.id }}">Delete</button>
+            <button class="btn btn-outline-secondary btn-sm edit-comm-btn" comment_id="{{ comment.id }}">Edit</button>
+            <button class="btn btn-outline-secondary btn-sm delete-comm-btn" comment_id="{{ comment.id }}">Delete</button>
             {% endif %}
             
         </div>
@@ -104,5 +108,5 @@
 {% endblock %}
 
 {% block extras %}
-<script src="{% static 'js/posts.js' %}"></script>
+<script src="{% static 'js/comments.js' %}"></script>
 {% endblock %}

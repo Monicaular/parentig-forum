@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, TemplateView
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
+from django.urls import reverse
 from .models import Post, Resource, ResourceLink
 from .forms import PostForm, ContactForm, CommentForm
 
@@ -90,6 +91,28 @@ def like_post(request, post_id):
             post.likes.add(request.user)
             messages.add_message(request, messages.INFO, "You liked this!")
     return redirect('post_detail', pk=post_id)
+
+
+def edit_comment(request, pk, comment_id):
+    if request.method == "POST":
+        post = get_object_or_404(Post, pk=pk)
+        queryset = post.comments.all()
+        comment = get_object_or_404(queryset, pk=comment_id)
+
+        if comment.author == request.user:
+            comment_form = CommentForm(request.POST, instance=comment)
+            if comment_form.is_valid():
+                comment = comment_form.save(commit=False)
+                comment.post = post
+                comment.save()
+                messages.success(request, "Comment updated successfully!", extra_tag="comment-success")
+            else:
+                messages.error(request, "Error updating comment")
+        else:
+            messages.error(request, "You are not authorized to edit this comment.")
+
+    return HttpResponseRedirect(reverse('post_detail', kwargs={'pk': pk}))
+
 
 def rules_view(request):
     return render(request, 

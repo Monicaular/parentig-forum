@@ -7,9 +7,9 @@
 <div class="row justify-content-center">
     <div class="col-12 col-md-6 my-5">
         {% if messages %}
-        <ul id="contact-message-success">
+        <ul class="message-container">
             {% for message in messages %}
-            <li>{{ message }}</li>
+            <li class="success-message error-message">{{ message }}</li>
             {% endfor %}
         </ul>
         {% endif %}
@@ -31,5 +31,5 @@
 {% endblock content %}
 
 {% block extras %}
-<script src="{% static 'js/home.js' %}"></script>
+<script src="{% static 'js/comments.js' %}"></script>
 {% endblock %}

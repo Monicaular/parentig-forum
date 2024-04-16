@@ -12,6 +12,5 @@ urlpatterns = [
     path('rules/', views.rules_view, name='rules'),
     path('resources/', views.resources, name='resources'),
     path('contact/', views.contact_us, name='contact'),
-
+    path('<int:pk>/edit_comment/<int:comment_id>', views.edit_comment, name='edit_comment'),
 ]
-    

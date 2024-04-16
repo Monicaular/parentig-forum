@@ -7,15 +7,4 @@ document.addEventListener("DOMContentLoaded", function() {
             prevEl: '.swiper-button-prev',
         },
     });
-
-    function hideSuccessMessage() {
-        let successMessage = document.getElementById('contact-message-success');
-        if (successMessage) {
-            setTimeout(function() {
-                successMessage.style.display = 'none';
-            }, 3000);
-        }
-    }
-
-    hideSuccessMessage();
 });
