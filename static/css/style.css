@@ -4,13 +4,17 @@ body {
     font-weight: 400;
     font-style: normal;
     padding-bottom: 60px;
-    /* background-image: linear-gradient(0deg, #E7E7E4ff, #CDC7C1ff, #524C44ff, #69665Fff, #4B3C2Eff); */
+    background-color: rgba(204, 185, 181, 1);
 }
 
 /* Navbar*/
 
 .navbar-brand {
     font-weight: 600;
+}
+
+.bg-body-tertiary {
+    background-color: #9A8580ff;
 }
 
 /* Styling the homepage*/
@@ -37,10 +41,44 @@ body {
 .hero-content {
     margin: 20px 0;
     padding: 20px;
-    background-color: rgba(231, 231, 228, 1);
+    background-color: rgba(204, 185, 181, 1);
     border-radius: 20px;
     font-weight: 500;
-    color: white;
+}
+
+.auth-info {
+    color: #312F3Cff;
+}
+
+/*Button Styling*/
+
+.add-question {
+    background-color: #6371A2ff;
+    border: none;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  
+}
+
+.add-question:hover{
+    background-color: #312F3Cff;
+}
+
+.like {
+    color: red;
+    border: none;
+    background-color: transparent;
+}
+
+.unlike{
+    color: red;
+    border: white;
+    background-color: white;
+}
+
+.fa-heart.unlike {
+    border: none !important;
+    background-color: transparent !important;
+    /* Additional styles if needed */
 }
 
 

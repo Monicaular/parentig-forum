@@ -25,12 +25,12 @@
             {% if user.is_authenticated and user in post.likes.all %}
             <form id="unlike-form" action="{% url 'like_post' post.id %}" method="post">
                 {% csrf_token %}
-                <button type="submit">Unlike</button>
+                <button type="submit"><i class="fa-solid fa-heart like"></i> {{ post.likes.count }}</button>
             </form>
             {% elif user.is_authenticated %}
             <form id="like-form" action="{% url 'like_post' post.id %}" method="post">
                 {% csrf_token %}
-                <button type="submit">Like</button>
+                <button type="submit"><i class="fa-regular fa-heart unlike"></i> {{ post.likes.count }}</button>
             </form>
             {% else %}
             <p>Please <a href="{% url 'account_login' %}">log in</a> to like this post.</p>
@@ -82,7 +82,7 @@
     <h5>Comments ({{ post.comments.count }})</h5>
     <hr>
     {% for comment in post.comments.all %}
-    <div class="card mb-3">
+    <div class="card mb-3 {% if forloop.counter|divisibleby:2 %}comment-left{% else %}comment-right{% endif %}">
         <div class="card-body">
             <p class="card-text">
                 <small class="text-muted">{{ comment.author }} | {{ comment.created_at }}</small>
@@ -94,12 +94,12 @@
             {% if user.is_authenticated and user in comment.likes.all %}
             <form id="unlike-comment-form" action="{% url 'like_comment' comment.id %}" method="post">
                 {% csrf_token %}
-                <button type="submit">Unlike</button>
+                <button type="submit"><i class="fa-solid fa-heart like"></i> {{ comment.likes.count }}</button>
             </form>
             {% elif user.is_authenticated %}
             <form id="like-comment-form" action="{% url 'like_comment' comment.id %}" method="post">
                 {% csrf_token %}
-                <button type="submit">Like</button>
+                <button type="submit"><i class="fa-regular fa-heart unlike"></i> {{ comment.likes.count }}</button>
             </form>
             {% else %}
             <p>Please <a href="{% url 'account_login' %}">log in</a> to like this comment.</p>
@@ -109,7 +109,6 @@
             <button class="btn btn-outline-secondary btn-sm delete-comm-btn"
                 comment_id="{{ comment.id }}">Delete</button>
             {% endif %}
-            <p class="card-text">Likes: {{ comment.likes.count }}</p>
 
         </div>
     </div>
