@@ -3,7 +3,7 @@ from django.views.generic import ListView, TemplateView
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
 from django.urls import reverse
-from .models import Post, Resource, ResourceLink
+from .models import Post, Resource, ResourceLink, Comment
 from .forms import PostForm, ContactForm, CommentForm
 
 class PostsView(ListView):
@@ -105,13 +105,29 @@ def edit_comment(request, pk, comment_id):
                 comment = comment_form.save(commit=False)
                 comment.post = post
                 comment.save()
-                messages.success(request, "Comment updated successfully!", extra_tag="comment-success")
+                messages.success(request, "Comment updated successfully!")
             else:
                 messages.error(request, "Error updating comment")
         else:
             messages.error(request, "You are not authorized to edit this comment.")
 
     return HttpResponseRedirect(reverse('post_detail', kwargs={'pk': pk}))
+
+
+def delete_comment(request, pk, comment_id):
+    """
+    View to delete comment
+    """
+    post = get_object_or_404(Post, pk=pk)
+    comment = get_object_or_404(Comment, pk=comment_id)
+
+    if comment.author == request.user:
+        comment.delete()
+        messages.success(request, 'Comment deleted successfully!')
+    else:
+        messages.error(request, 'You can only delete your own comments!')
+
+    return redirect('post_detail', pk=pk)
 
 
 def rules_view(request):
