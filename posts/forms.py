@@ -16,7 +16,7 @@ class ContactForm(forms.ModelForm):
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ('content', )
+        fields = ('content', 'photo', )
         widgets = {
             'parent_comment': forms.HiddenInput(),
         }
@@ -24,7 +24,8 @@ class CommentForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['content'].label = 'Comment'
-        self.fields['content'].widget.attrs.update({'class': 'form-control form-control-sm'})  
+        self.fields['content'].widget.attrs.update({'class': 'form-control form-control-sm'}) 
+        self.fields['photo'].widget.attrs['accept'] = 'image/*' 
         self.helper = FormHelper()
         self.helper.form_method = 'post'
         self.helper.layout = Layout(

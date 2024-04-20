@@ -71,7 +71,7 @@
 <div class="mt-4">
     <!-- Comment Form -->
     {% if user.is_authenticated %}
-    <form id="commentForm" method="post">
+    <form id="commentForm" method="post" enctype="multipart/form-data">
         {{ comment_form | crispy }}
         {% csrf_token %}
         <button id="submitBtn" type="submit" class="btn btn-lg">Submit</button>

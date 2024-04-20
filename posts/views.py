@@ -24,7 +24,7 @@ def post_detail(request, pk):
     comment_form = CommentForm()
 
     if request.method == "POST":
-        comment_form = CommentForm(request.POST)
+        comment_form = CommentForm(request.POST, request.FILES)
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
             comment.author = request.user
@@ -35,6 +35,8 @@ def post_detail(request, pk):
             return redirect(request.path)
         else:
             messages.error(request, 'There was an error posting your comment. Please try again.')
+    else:
+        comment_form = CommentForm()
 
     return render(
         request,
