@@ -5,12 +5,37 @@ from django.contrib import messages
 from django.urls import reverse
 from .models import Post, Resource, ResourceLink, Comment
 from .forms import PostForm, ContactForm, CommentForm
+from django.db.models import Q
+
 
 class PostsView(ListView):
     queryset = Post.objects.all().order_by("-created_at")
     template_name = "posts/post_list.html"
     paginate_by = 4
 
+    def get_queryset(self):
+        queryset = Post.objects.all().order_by("-created_at")
+
+        # Filtering by age
+        age = self.request.GET.get('age')
+        if age:
+            queryset = queryset.filter(age=age)
+
+        # Filtering by category
+        category = self.request.GET.get('category')
+        if category:
+            queryset = queryset.filter(categories=category)
+
+        # Searching by keyword
+        search_query = self.request.GET.get('search_query')
+        if search_query:
+            queryset = queryset.filter(
+                Q(title__icontains=search_query) | 
+                Q(content__icontains=search_query) | 
+                Q(tags__icontains=search_query)
+            )
+
+        return queryset
 
 class HomeView(TemplateView):
     template_name = 'posts/index.html'

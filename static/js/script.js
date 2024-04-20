@@ -44,6 +44,5 @@ document.addEventListener('DOMContentLoaded', function() {
             deleteCommentModal.show();
         });
     }
-
  });
     

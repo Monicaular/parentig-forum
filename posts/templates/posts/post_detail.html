@@ -109,6 +109,7 @@
             <button class="btn btn-outline-secondary btn-sm delete-comm-btn"
                 comment_id="{{ comment.id }}">Delete</button>
             {% endif %}
+            <p class="card-text">Likes: {{ comment.likes.count }}</p>
 
         </div>
     </div>

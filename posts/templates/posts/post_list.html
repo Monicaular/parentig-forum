@@ -10,13 +10,50 @@
             <a href="{% url 'create_post' %}" class="btn btn-primary">Click to ask a question</a>
         </div>
     </div>
+    <!-- Filtering Options -->
+    <div class="row mb-3">
+        <div class="col-lg-6">
+            <form method="get" action="{% url 'post_list' %}">
+                <label for="age">Filter by Age:</label>
+                <select name="age" id="age">
+                    <option value="">All</option>
+                    <option value="0">0-2 years</option>
+                    <option value="1">2-4 years</option>
+                    <option value="2">Above 4 years</option>
+                    <option value="3">Teenagers</option>
+                </select>
+                <label for="category">Filter by Category:</label>
+                <select name="category" id="category">
+                    <option value="">All</option>
+                    <option value="Feeding & Nutrition">Feeding & Nutrition</option>
+                    <option value="Health Concerns">Health Concerns</option>
+                    <option value="Toys & Activities">Toys & Activities</option>
+                    <option value="Breastfeeding">Breastfeeding</option>
+                    <option value="Parental Separation">Parental Separation</option>
+                    <option value="Home Organization">Home Organization</option>
+                    <option value="Sleeping Patterns">Sleeping Patterns</option>
+                    <option value="Behavioural Issues">Behavioural Issues</option>
+                    <option value="Gentle Parenting">Gentle Parenting</option>
+                </select>
+                <button type="submit" class="btn btn-primary">Apply Filters</button>
+            </form>
+        </div>
+        <div class="col-lg-6">
+            <!-- Search Input Field -->
+            <form method="get" action="{% url 'post_list' %}">
+                <label for="search_query">Search:</label>
+                <input type="text" name="search_query" id="search_query" placeholder="Enter keywords...">
+                <button type="button" class="btn btn-primary">Search</button>
+            </form>
+        </div>
+    </div>
     <h1>Conversations</h1>
     {% for post in post_list %}
     <div class="card mb-3">
         <div class="card-body">
             <h5 class="card-title"><a href="{% url 'post_detail' post.pk %}" class="post-link">{{ post.title }}</a></h5>
             <p class="card-text">{{ post.author }} | {{ post.created_at }}</p>
-            <p class="card-text">{{ post.content }}</p>
+            <p class="card-text ">{{ post.content }}</p>
             <p class="card-text">Likes: {{ post.likes.count }} | Comments: {{ post.comments.count }} </p>
         </div>
         {% if post.photo %}
@@ -43,4 +80,8 @@
     {% endif %}
 </div>
 
+{% endblock %}
+
+{% block extras %}
+<script src="{% static 'js/script.js' %}"></script>
 {% endblock %}
