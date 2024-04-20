@@ -132,6 +132,20 @@ def delete_comment(request, pk, comment_id):
     return redirect('post_detail', pk=pk)
 
 
+def like_comment(request, comment_id):
+    comment = Comment.objects.get(id=comment_id)
+    if request.user.is_authenticated:
+        if request.user in comment.likes.all():
+            comment.likes.remove(request.user)
+            messages.success(request, "You unliked this comment!")
+        else:
+            comment.likes.add(request.user)
+            messages.success(request, "You liked this comment!")
+    else:
+        messages.error(request, "Please log in to like comments.")
+    return redirect('post_detail', pk=comment.post.pk)
+
+
 def rules_view(request):
     return render(request, 
     'posts/rules.html')
