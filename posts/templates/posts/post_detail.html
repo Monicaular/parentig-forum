@@ -87,7 +87,13 @@
             <p class="card-text">
                 <small class="text-muted">{{ comment.author }} | {{ comment.created_at }}</small>
             </p>
-            <p id="comment{{ comment.id }}" class="card-text">{{ comment.content }}</p>
+            {% if comment.content|urlize %}
+                {% autoescape off %}
+                <p id="comment{{ comment.id }}" class="card-text">{{ comment.content|urlize }}</p>
+                {% endautoescape %}
+            {% else %}
+                <p id="comment{{ comment.id }}" class="card-text">{{ comment.content }}</p>
+            {% endif %}
             {% if comment.photo %}
             <img src="{{ comment.photo.url }}" class="card-img-bottom" alt="Comment Image">
             {% endif %}
