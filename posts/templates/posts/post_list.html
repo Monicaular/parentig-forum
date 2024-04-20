@@ -54,7 +54,7 @@
             <h5 class="card-title"><a href="{% url 'post_detail' post.pk %}" class="post-link">{{ post.title }}</a></h5>
             <p class="card-text">{{ post.author }} | {{ post.created_at }}</p>
             <p class="card-text ">{{ post.content }}</p>
-            <p class="card-text">Likes: {{ post.likes.count }} | Comments: {{ post.comments.count }} </p>
+            <p class="card-text"><i class="fa-solid fa-heart like"></i> {{ post.likes.count }} | <i class="fa-solid fa-comment"></i> {{ post.comments.count }} </p>
         </div>
         {% if post.photo %}
         <img class="card-img-top" src="{{ post.photo.url }}" alt="{{ post.title }}">

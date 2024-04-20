@@ -7,6 +7,10 @@ body {
     background-color: rgba(204, 185, 181, 1);
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
 /* Navbar*/
 
 .navbar-brand {
@@ -52,8 +56,6 @@ body {
 .add-question {
     background-color: #6371A2ff;
     border: none;
-    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-  
 }
 
 .add-question:hover{
