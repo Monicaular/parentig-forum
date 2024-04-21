@@ -3,7 +3,7 @@ body {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-    padding-bottom: 60px;
+    padding: 60px 0;
     background-color: rgba(204, 185, 181, 1);
 }
 
@@ -17,15 +17,63 @@ a {
     font-weight: 600;
 }
 
-
 /* Styling the homepage*/
+
+.auth-info {
+    color: #312F3Cff;
+    background-color: rgba(213, 220, 230, 1);
+
+}
+
+.user {
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.container {
+    width: 100%; 
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.hero-container .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
 
 .position-relative {
     position: relative;
     max-width: 800px;
-    margin: 20px auto;
-    
+    margin: 0 auto;
 }
+
+
+.position-relative .blockquote .quote-overlay {
+    position: absolute; 
+    bottom: 0; 
+    background: rgb(0, 0, 0); 
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    border-radius: 0 0 10px 10px;
+}
+
+
+.img-fluid {
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+
+.hero-content {
+    padding: 20px;
+    background-color: rgba(99, 113, 162, 0.5);
+    border-radius: 20px;
+    margin-top: 15px;
+}
+
 
 .blockquote {
     position: absolute; 
@@ -39,28 +87,17 @@ a {
     padding: 20px; 
 }
 
-.hero-content {
-    margin: 20px 0;
-    padding: 20px;
-    background-color: rgba(99, 113, 162, 0.5);
-    border-radius: 20px;
-    font-weight: 500;
-}
-
-.auth-info {
-    color: #312F3Cff;
-}
-
-/*Button Styling*/
-
-.add-question {
-    background-color: #6371A2ff;
+.add-post {
+    background-color: rgba(99, 113, 162, 1);
     border: none;
-}
 
-.add-question:hover{
-    background-color: #312F3Cff;
-}
+} 
+
+.add-post:hover {
+    background-color: rgba(49, 47, 60, 1);
+} 
+
+/*Like button styling*/
 
 .like {
     color: red;
@@ -78,6 +115,7 @@ a {
 .swiper-container {
     width: 100%;
     position: relative;
+    margin:20px 0;
     
 }
 
@@ -135,4 +173,16 @@ footer{
     position: fixed;
     bottom: 0;
 
+}
+
+@media (max-width: 992px) {
+    .hero-container .row {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content, .position-relative {
+        flex: 0 0 100%;
+    }
 }

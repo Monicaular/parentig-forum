@@ -3,49 +3,51 @@
 
 {% block content %}
 <div class="container">
-    <div class="row">
-        <!-- Column for the hero image and quote overlay -->
-        <div class="col-lg-6">
-            <div class="position-relative">
-                <!--Hero Image-->
-                <img src="{% static 'images/hero-image-mom-and-child-compressed.webp' %}" class="img-fluid"
-                    alt="mom holding her child up in front of a seaside">
-                <!--Quote Overlay-->
-                <div class="quote-overlay">
-                    <blockquote class="blockquote">
-                        <p class="mb-0">"Children are not things to be molded, but people to be unfolded."</p>
-                        <footer class="blockquote-footer">Jess Lair</footer>
-                    </blockquote>
+    <!--Create a post button-->
+    <div class="row mt-3">
+        <div class="col-lg-12 text-right">
+            <a href="{% url 'post_list' %}" class="btn btn-primary add-post"> <i class="fa-solid fa-circle-plus"></i> Add a post</a>
+        </div>
+    </div>
+    <div class="hero-container">
+        <div class="row">
+            <!-- Column for the hero image and quote overlay -->
+            <div class="col-lg-6">
+                <div class="position-relative">
+                    <!--Hero Image-->
+                    <img src="{% static 'images/hero-image-mom-and-child-compressed.webp' %}" class="img-fluid"
+                        alt="mom holding her child up in front of a seaside">
+                    <!--Quote Overlay-->
+                    <div class="quote-overlay">
+                        <blockquote class="blockquote">
+                            <p class="mb-0">"Children are not things to be molded, but people to be unfolded."</p>
+                            <footer class="blockquote-footer">Jess Lair</footer>
+                        </blockquote>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!--Column for hero content-->
-        <div class="col-lg-6">
-            <div class="hero-content">
-                <p>Welcome to our parenting forum! We are here to share wisdom and support on raising children, focusing
-                    on
-                    topics
-                    like breastfeeding, weaning, gentle parenting, and family-friendly food ideas. Whether you're a new
-                    parent or
-                    a
-                    seasoned caregiver, you'll find knowledge and encouragement here.
-                    In addition to exchanging tips and advice, we celebrate the joys and challenges of parenthood,
-                    recognizing
-                    that
-                    each
-                    family's journey is unique. From breastfeeding troubleshooting to creative meal inspiration, our
-                    forum is a
-                    welcoming space where caregivers can connect, learn, and grow together in their parenting journey.
-                    Join us as
-                    we
-                    navigate the joys and complexities of raising happy, healthy children in a supportive community.
-                </p>
-            </div>
-        </div>
-        <!--Create a post button-->
-        <div class="row mt-3">
-            <div class="col-lg-12 text-right">
-                <a href="{% url 'post_list' %}" class="btn btn-primary add-question">Do you have a question?</a>
+            <!--Column for hero content-->
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <p>Welcome to our parenting forum! We are here to share wisdom and support on raising children, focusing
+                        on
+                        topics
+                        like breastfeeding, weaning, gentle parenting, and family-friendly food ideas. Whether you're a new
+                        parent or
+                        a
+                        seasoned caregiver, you'll find knowledge and encouragement here.
+                        In addition to exchanging tips and advice, we celebrate the joys and challenges of parenthood,
+                        recognizing
+                        that
+                        each
+                        family's journey is unique. From breastfeeding troubleshooting to creative meal inspiration, our
+                        forum is a
+                        welcoming space where caregivers can connect, learn, and grow together in their parenting journey.
+                        Join us as
+                        we
+                        navigate the joys and complexities of raising happy, healthy children in a supportive community.
+                    </p>
+                </div>
             </div>
         </div>
         <!--Swiper Carousel-->

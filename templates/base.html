@@ -89,9 +89,9 @@
   <div class="d-flex flex-shrink-0 justify-content-center auth-info">
     {% if request.path != login_url and request.path != signup_url and request.path != logout_url %}
       {% if user.is_authenticated %}
-        <p class="m-3">You are signed in as {{ user }}</p>
+        <p class="m-3">You are signed in as <strong>{{ user }}</strong></p>
       {% else %}
-        <p class="m-3">You are not signed in. Please sign in <a class="link" href="{{ login_url }}">here</a></p>
+        <p class="m-3">You are not signed in. Please sign in <a class="link user" href="{{ login_url }}">here</a></p>
       {% endif %}
     {% endif %}
   </div>
