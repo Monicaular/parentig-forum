@@ -40,6 +40,7 @@ a {
 .auth-info {
     color: #312F3Cff;
     background-color: rgba(213, 220, 230, 1);
+    margin-top: 1.25rem;
 
 }
 
@@ -105,19 +106,57 @@ a {
     padding: 20px; 
 }
 
+/* Conversations Page*/
+.mb-2 {
+    margin: 20px;
+}
+
+#search-box {
+    margin: 20px;
+}
+
+#post-question {
+    margin: 20px;
+}
+
+.col-md-4 {
+    background-color: rgba(154, 133, 128, 1);
+}
+.post-title {
+    background-color: rgba(213, 220, 230, 0.8);
+    padding: 10px;
+}
+.post-title:hover {
+    background-color: rgba(216, 124, 60, 0.8);
+}
+
+.post-author {
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+.page-link{
+    margin-bottom: 20px;
+}
+/*Buttons styling*/
+
+
 .add-post {
     background-color: rgba(99, 113, 162, 1);
     border: none;
     color:aliceblue;
+}
 
-} 
+.submit-button {
+    background-color: rgba(99, 113, 162, 1);
+    color:aliceblue;
+    margin: 20px;
+}
 
-.add-post:hover {
+.add-post:hover, .submit-button:hover {
     background-color: rgba(49, 47, 60, 1);
     color:aliceblue;
-} 
-
-/*Like button styling*/
+}
 
 .like {
     color: red;
@@ -130,6 +169,7 @@ a {
     border: white;
     background-color: white;
 }
+
 
 /*Swipper styling*/
 .swiper-container {
