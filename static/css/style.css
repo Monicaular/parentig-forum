@@ -108,11 +108,13 @@ a {
 .add-post {
     background-color: rgba(99, 113, 162, 1);
     border: none;
+    color:aliceblue;
 
 } 
 
 .add-post:hover {
     background-color: rgba(49, 47, 60, 1);
+    color:aliceblue;
 } 
 
 /*Like button styling*/
@@ -187,9 +189,10 @@ a {
 
 /* Styling the Fooer*/
 
-footer{
+.footer-bg{
     position: fixed;
     bottom: 0;
+    background-color: #D87C3Cff;
 
 }
 
