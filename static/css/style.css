@@ -15,6 +15,24 @@ a {
 
 .navbar-brand {
     font-weight: 600;
+    color:#D5DCE6ff;
+}
+
+.navbar {
+    background-color: #634189ff;
+}
+
+.navbar .navbar-nav .nav-link {
+    color: #D5DCE6ff;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link:hover {
+    color:#D87C3Cff;
+}
+
+.dropdown-item:hover {
+    background-color: #D87C3Cff;
 }
 
 /* Styling the homepage*/
