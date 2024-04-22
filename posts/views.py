@@ -56,10 +56,13 @@ def post_detail(request, pk):
             comment.post = post
             comment.save()
             comment_form = CommentForm()
-            messages.success(request, 'Your comment has been posted successfully!')
-            return redirect(request.path)
+            messages.success(request, 'Your comment has been posted successfully!', extra_tags='comment')
+
+            url = reverse('post_detail', args=[pk]) + f'#comment{comment.id}'
+            return redirect(url)
         else:
-            messages.error(request, 'There was an error posting your comment. Please try again.')
+            for error in comment_form.errors:
+                messages.error(request, f'{error}', extra_tags='comment')
     else:
         comment_form = CommentForm()
 
@@ -113,10 +116,10 @@ def like_post(request, post_id):
     if request.user.is_authenticated:
         if post.likes.filter(id=request.user.id).exists():
             post.likes.remove(request.user)
-            messages.add_message(request, messages.INFO, "You unliked this!")
+            messages.add_message(request, messages.INFO, "You unliked this!", extra_tags='like')
         else:
             post.likes.add(request.user)
-            messages.add_message(request, messages.INFO, "You liked this!")
+            messages.add_message(request, messages.INFO, "You liked this!", extra_tags='like')
     return redirect('post_detail', pk=post_id)
 
 
@@ -132,11 +135,11 @@ def edit_comment(request, pk, comment_id):
                 comment = comment_form.save(commit=False)
                 comment.post = post
                 comment.save()
-                messages.success(request, "Comment updated successfully!")
+                messages.success(request, "Comment updated successfully!", extra_tags='comment')
             else:
-                messages.error(request, "Error updating comment")
+                messages.error(request, "Error updating comment", extra_tags='comment')
         else:
-            messages.error(request, "You are not authorized to edit this comment.")
+            messages.error(request, "You are not authorized to edit this comment.", extra_tags='comment')
 
     return HttpResponseRedirect(reverse('post_detail', kwargs={'pk': pk}))
 
@@ -150,9 +153,9 @@ def delete_comment(request, pk, comment_id):
 
     if comment.author == request.user:
         comment.delete()
-        messages.success(request, 'Comment deleted successfully!')
+        messages.success(request, 'Comment deleted successfully!', extra_tags='comment')
     else:
-        messages.error(request, 'You can only delete your own comments!')
+        messages.error(request, 'You can only delete your own comments!', extra_tags='comment')
 
     return redirect('post_detail', pk=pk)
 
@@ -162,12 +165,12 @@ def like_comment(request, comment_id):
     if request.user.is_authenticated:
         if request.user in comment.likes.all():
             comment.likes.remove(request.user)
-            messages.success(request, "You unliked this comment!")
+            messages.success(request, "You unliked this comment!", extra_tags='like')
         else:
             comment.likes.add(request.user)
-            messages.success(request, "You liked this comment!")
+            messages.success(request, "You liked this comment!", extra_tags='like')
     else:
-        messages.error(request, "Please log in to like comments.")
+        messages.error(request, "Please log in to like comments.", extra_tags='like')
     return redirect('post_detail', pk=comment.post.pk)
 
 
@@ -192,7 +195,7 @@ def contact_us(request):
         contact_form = ContactForm(data=request.POST)
         if contact_form.is_valid():
             contact_form.save()
-            messages.success(request, "Your contact request has been submitted successfully!")
+            messages.success(request, "Your contact request has been submitted successfully!", extra_tags='contact')
             return redirect('contact')
     else:
         contact_form = ContactForm()
