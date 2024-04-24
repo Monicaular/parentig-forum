@@ -5,28 +5,39 @@
 
 {% block content %}
 <div class="container mt-4">
+    <!--Messages-->
     {% for message in messages %}
         {% if 'general' in message.tags %}
             <div class="alert alert-info">{{ message }}</div>
         {% endif %}
     {% endfor %}
+    <!--Post-->
     <div class="row">
-        <div class="col-12 col-md-8">
+        <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">{{ post.title }}</h5>
+                    <h5 class="card-title post-title">{{ post.title }}</h5>
                     <p class="card-text">
-                        <small class="text-muted post-author">{{ post.author }} | {{ post.created_at }}</small>
+                        <p class="post-author">by {{ post.author }}</p>
+                        <small class="text-muted">on {{ post.created_at }}</small>
                     </p>
-                    <p class="card-text">{{ post.content | safe }}</p>
+                    {% if post.content|urlize %}
+                    {% autoescape off %}
+                    <p id="post{{ post.id }}" class="card-text urlized-link">{{ post.content|urlize }}</p>
+                    {% endautoescape %}
+                    {% else %}
+                    <p id="post{{ post.id }}" class="card-text">{{ post.content }}</p>
+                    {% endif %}
                     {% if post.photo %}
                     <img src="{{ post.photo.url }}" class="card-img-bottom" alt="{{ post.title }}">
                     {% endif %}
+                    <!--Like Messages-->
                     {% for message in messages %}
-                        {% if 'like' in message.tags %}
+                        {% if 'like-post' in message.tags %}
                             <div class="alert alert-{{ message.tags }}">{{ message }}</div>
                         {% endif %}
                     {% endfor %}
+                    <!--Post Interaction Area-->
                     {% if user.is_authenticated and user in post.likes.all %}
                     <form id="unlike-form" action="{% url 'like_post' post.id %}" method="post">
                         {% csrf_token %}
@@ -43,8 +54,8 @@
                     <p>Please <a href="{% url 'account_login' %}">log in</a> to like this post.</p>
                     {% endif %}
                     {% if user.is_authenticated and user == post.author %}
-                    <a href="{% url 'edit_post' pk=post.pk %}" class="btn btn-outline-secondary btn-sm">Edit</a>
-                    <button class="btn btn-outline-secondary btn-sm delete-btn"
+                    <a href="{% url 'edit_post' pk=post.pk %}" class="btn btn-sm edit-btn">Edit</a>
+                    <button class="btn btn-sm delete-btn"
                         comment_id="{{ comment.id }}">Delete</button>
                     {% else %}
                     <a href="#" class="btn btn-outline-secondary btn-sm disabled" disabled>Edit</a>
@@ -52,25 +63,44 @@
                     {% endif %}
                 </div>
             </div>
+
+            <!--Comment Form-->
+            <div class="mt-4">
+                {% if user.is_authenticated %}
+                <div class="sticky-top">
+                    <form id="commentForm" method="post" enctype="multipart/form-data">
+                        {{ comment_form | crispy }}
+                        {% csrf_token %}
+                        <button id="submitBtn" type="submit" class="btn btn-lg">Submit</button>
+                    </form>
+                    {% else %}
+                    <p class="mt-4">Please <a href="{% url 'account_login' %}">sign in</a> to comment.</p>
+                    {% endif %}
+                </div>
+            </div>
+
             <!-- Comments Section -->
             <div class="comments-section mt-4">
                 <h5>Comments ({{ post.comments.count }})</h5>
                 <hr>
+                <!--Comments messages-->
                 {% for message in messages %}
                     {% if 'comment' in message.tags %}
                         <div class="alert alert-{{ message.tags }}">{{ message }}</div>
                     {% endif %}
                 {% endfor %}
+                <!--Comments Display-->
                 {% for comment in post.comments.all %}
                 <div class="card mb-3">
                     <div class="card-body">
                         <p class="card-text">
-                            <small class="text-muted post-author">{{ comment.author }} |
-                                {{ comment.created_at }}</small>
+                            <p class="post-author">{{ comment.author }}
+                                </p>
+                            <small class="text-muted" >{{ comment.created_at }}</small>
                         </p>
                         {% if comment.content|urlize %}
                         {% autoescape off %}
-                        <p id="comment{{ comment.id }}" class="card-text">{{ comment.content|urlize }}</p>
+                        <p id="comment{{ comment.id }}" class="card-text urlized-link">{{ comment.content|urlize }}</p>
                         {% endautoescape %}
                         {% else %}
                         <p id="comment{{ comment.id }}" class="card-text">{{ comment.content }}</p>
@@ -78,6 +108,12 @@
                         {% if comment.photo %}
                         <img src="{{ comment.photo.url }}" class="card-img-bottom" alt="Comment Image">
                         {% endif %}
+                        <!--Like Comment Messages-->
+                        {% for message in messages %}
+                            {% if 'like-comm' in message.tags %}
+                                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                            {% endif %}
+                        {% endfor %}
                         {% if user.is_authenticated and user in comment.likes.all %}
                         <form id="unlike-comment-form" action="{% url 'like_comment' comment.id %}" method="post">
                             {% csrf_token %}
@@ -106,21 +142,6 @@
                 {% endfor %}
             </div>
         </div>
-        <!--Comment Form-->
-        <div class="col-12 col-md-4">
-            {% if user.is_authenticated %}
-            <div class="sticky-top">
-                <form id="commentForm" method="post" enctype="multipart/form-data">
-                    {{ comment_form | crispy }}
-                    {% csrf_token %}
-                    <button id="submitBtn" type="submit" class="btn btn-lg">Submit</button>
-                </form>
-                {% else %}
-                <p>Please <a href="{% url 'account_login' %}">sign in</a> to comment.</p>
-                {% endif %}
-            </div>
-        </div>
-
         <!-- Delete post confirmation modal -->
         <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
             <div class="modal-dialog">

@@ -133,13 +133,49 @@ a {
 .post-author {
     font-style: italic;
     font-size: 0.9rem;
+    color: #F5F5F5ff;
+    background-color: #634189ff;
+    padding: 5px;
 }
 
 .page-link{
     margin-bottom: 20px;
 }
-/*Buttons styling*/
 
+.comments-section {
+    margin-bottom: 50px;
+}
+/*Buttons styling*/
+#submitBtn {
+    background-color: rgba(99, 113, 162, 1);
+    color:aliceblue;
+    margin: 20px;
+}
+
+#submitBtn:hover {
+    background-color: rgba(49, 47, 60, 1);
+    color:aliceblue;
+}
+
+.edit-btn, 
+.edit-comm-btn {
+    background-color: #634189ff;
+    color: white;
+    border:rgba(49, 47, 60, 1);
+}
+
+.edit-btn:hover, 
+.delete-btn:hover, 
+.delete-comm-btn:hover, 
+.edit-comm-btn:hover  {
+    background-color: #D87C3Cff;
+}
+
+.delete-btn, 
+.delete-comm-btn {
+    background-color: #d0312d;
+    color:white
+}
 
 .add-post {
     background-color: rgba(99, 113, 162, 1);
@@ -168,6 +204,19 @@ a {
     color: red;
     border: white;
     background-color: white;
+}
+
+/* Post detail page*/
+
+.urlized-link a {
+    color: #3498db;
+    text-decoration: none;
+
+}
+
+.urlized-link a:hover {
+    color: #2c3e50; 
+    text-decoration: underline;
 }
 
 

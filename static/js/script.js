@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-
     for (let button of deleteCommentButtons) {
         button.addEventListener("click", (e) => {
             let commentId = e.target.getAttribute("comment_id");

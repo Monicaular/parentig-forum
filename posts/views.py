@@ -116,10 +116,10 @@ def like_post(request, post_id):
     if request.user.is_authenticated:
         if post.likes.filter(id=request.user.id).exists():
             post.likes.remove(request.user)
-            messages.add_message(request, messages.INFO, "You unliked this!", extra_tags='like')
+            messages.add_message(request, messages.INFO, "You unliked this!", extra_tags='like-post')
         else:
             post.likes.add(request.user)
-            messages.add_message(request, messages.INFO, "You liked this!", extra_tags='like')
+            messages.add_message(request, messages.INFO, "You liked this!", extra_tags='like-post')
     return redirect('post_detail', pk=post_id)
 
 
@@ -165,12 +165,12 @@ def like_comment(request, comment_id):
     if request.user.is_authenticated:
         if request.user in comment.likes.all():
             comment.likes.remove(request.user)
-            messages.success(request, "You unliked this comment!", extra_tags='like')
+            messages.success(request, "You unliked this comment!", extra_tags='like-comm')
         else:
             comment.likes.add(request.user)
-            messages.success(request, "You liked this comment!", extra_tags='like')
+            messages.success(request, "You liked this comment!", extra_tags='like-comm')
     else:
-        messages.error(request, "Please log in to like comments.", extra_tags='like')
+        messages.error(request, "Please log in to like comments.", extra_tags='like-comm')
     return redirect('post_detail', pk=comment.post.pk)
 
 

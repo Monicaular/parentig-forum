@@ -6,13 +6,11 @@
 
 <div class="row justify-content-center">
     <div class="col-12 col-md-6 my-5">
-        {% if messages %}
-        <ul class="message-container">
-            {% for message in messages %}
-            <li class="success-message error-message">{{ message }}</li>
-            {% endfor %}
-        </ul>
+    {% for message in messages %}
+        {% if 'contact' in message.tags %}
+            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
         {% endif %}
+    {% endfor %}
         <h5>Contact Us</h5>
         <p>If you have any suggestions for improving our content or if any users have been disrespectful or violated
             group rules, please don't hesitate to reach out to us. We take these matters seriously and will address them
@@ -32,4 +30,5 @@
 
 {% block extras %}
 <script src="{% static 'js/script.js' %}"></script>
+<script src="{% static 'js/messages.js' %}"></script>
 {% endblock %}
