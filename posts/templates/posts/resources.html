@@ -3,24 +3,28 @@
 
 {% block content %}
 
-<div class="container">
+<div class="container resources-container">
     <h1>Resources</h1>
-    <ul>
+    <div class="resources-list">
         {% for resource in resources %}
-        <li>
-            <h2>{{ resource.name }}</h2>
-            <p>{{ resource.description }}</p>
+        <div class="resource-item">
+            <div class="resource-image">
             {% if resource.image %}
             <img src="{{ resource.image.url }}" alt="{{ resource.name }} Image">
             {% endif %}
-            <a href="{{ resource.file.url }}">Download</a>
-        </li>
+        </div>
+        <div class="resource-content">
+            <h2>{{ resource.name }}</h2>
+            <p>{{ resource.description }}</p>   
+            <a class="download-btn" href="{{ resource.file.url }}">Download</a>
+        </div>
+    </div>
         {% endfor %}
-    </ul>
+    </div>
     <h2>Useful Links</h2>
     <ul>
         {% for link in links %}
-        <li><a href="{{ link.url }}">{{ link.name }}</a></li>
+        <li><a id="resource-link" href="{{ link.url }}">{{ link.name }}</a></li>
         {% endfor %}
     </ul>
 </div>
