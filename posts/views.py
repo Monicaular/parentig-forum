@@ -3,7 +3,7 @@ from django.views.generic import ListView, TemplateView
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
 from django.urls import reverse
-from .models import Post, Resource, ResourceLink, Comment
+from .models import Post, Resource, ResourceLink, Comment, Rule
 from .forms import PostForm, ContactForm, CommentForm
 from django.db.models import Q
 
@@ -175,8 +175,12 @@ def like_comment(request, comment_id):
 
 
 def rules_view(request):
-    return render(request, 
-    'posts/rules.html')
+    rules = Rule.objects.all()
+    return render(request,
+    'posts/rules.html',
+    {'rules': rules
+    }
+)
 
 def resources(request):
     resources = Resource.objects.all()

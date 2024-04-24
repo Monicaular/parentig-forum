@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Tag, Comment, Resource, ResourceLink, ContactRequest
+from .models import Post, Tag, Comment, Resource, ResourceLink, ContactRequest, Rule
 
 
 @admin.register(Post)
@@ -27,3 +27,7 @@ admin.site.register(ResourceLink)
 class ContactRequestAdmin(admin.ModelAdmin):
 
     list_display = ('message', 'read',)
+
+@admin.register(Rule)
+class RuleAdmin(admin.ModelAdmin):
+    list_display = ['title', 'description']

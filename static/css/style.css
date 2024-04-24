@@ -145,6 +145,24 @@ a {
 .comments-section {
     margin-bottom: 50px;
 }
+
+/*Rules Page*/
+.rules-container {
+    background-color: #9A8580ff;
+    border-radius: 20px;
+    padding: 20px;
+    list-style-type: none;
+}
+.rules-title {
+    text-align: center;
+    color: #2c3e50;
+}
+
+.rule-name {
+    text-decoration: none;
+}
+
+
 /*Buttons styling*/
 #submitBtn {
     background-color: rgba(99, 113, 162, 1);
