@@ -219,6 +219,62 @@ a {
     text-decoration: underline;
 }
 
+/*Authentification pages*/
+.sign-in-form {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+.sign-in-title,
+.sign-out-title,
+.sign-up-title {
+    text-align: center;
+    padding: 20px;
+    color:#2c3e50;
+}
+
+.forgot-password {
+    color: #3498db;
+    text-decoration: underline;
+}
+
+.forgot-password:hover,
+#contact-link:hover {
+    color: #2c3e50;
+}
+
+.sign-in-button,
+#reset-password-btn,
+.sign-out-btn,
+.sign-up-button {
+    background-color: #6371A2ff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+
+}
+.sign-in-button:hover,
+#reset-password-btn:hover,
+.sign-out-btn:hover,
+.sign-up-button:hover {
+    background-color: #D87C3Cff;
+}
+
+.reset-password-form,
+.sign-out-form {
+    text-align: center;
+}
+
+#contact-password {
+    padding:20px;
+}
+
+#contact-link {
+    color: #6371A2ff;
+    text-decoration: underline;
+}
+
 
 /*Swipper styling*/
 .swiper-container {
