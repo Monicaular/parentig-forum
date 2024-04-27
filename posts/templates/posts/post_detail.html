@@ -63,9 +63,6 @@
                     <a href="{% url 'edit_post' pk=post.pk %}" class="btn btn-sm edit-btn">Edit</a>
                     <button class="btn btn-sm delete-btn"
                         comment_id="{{ comment.id }}">Delete</button>
-                    {% else %}
-                    <a href="#" class="btn btn-outline-secondary btn-sm disabled" disabled>Edit</a>
-                    <button class="btn btn-outline-secondary btn-sm delete-btn disabled" disabled>Delete</button>
                     {% endif %}
                 </div>
                 {% if post.created_at != post.updated_at %}
@@ -133,8 +130,7 @@
                         <p>Please <a href="{% url 'account_login' %}">log in</a> to like this comment.</p>
                         {% endif %}
                         {% if user.is_authenticated and comment.author == user %}
-                        <button class="btn btn-outline-secondary btn-sm edit-comm-btn"
-                            comment_id="{{ comment.id }}">Edit</button>
+                        <a href="{% url 'edit_comment' pk=post.pk comment_id=comment.pk %}" class="btn btn-sm edit-comm-btn">Edit</a>
                         <button class="btn btn-outline-secondary btn-sm delete-comm-btn"
                             comment_id="{{ comment.id }}">Delete</button>
                         {% endif %}

@@ -156,6 +156,8 @@ a {
 
 /*Post detail page*/
 
+
+
 /* New post page*/
 
 .new-post-container {
@@ -376,6 +378,32 @@ input, textarea {
     text-decoration: underline;
 }
 
+#commentForm {
+    background-color:  rgba(213, 220, 230, 1);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+#div_id_content, #div_id_photo {
+    background-color: #ffffff;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#div_id_content textarea, #div_id_photo input {
+    width: 100%;
+}
+
+
+.form-label {
+    display: block; 
+    margin-bottom: 10px; 
+    color: #6371A2ff; 
+    font-weight: bold;
+}
+
 /*Authentification pages*/
 .sign-in-form {
     display: flex;
@@ -484,8 +512,6 @@ input, textarea {
 
 /*Filter styling*/
 
-
-/* Comment styling*/
 
 
 

@@ -92,6 +92,10 @@ def create_post(request):
 def edit_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
 
+    if request.user != post.author:
+        messages.error(request, "You are not authorized to edit this post.")
+        return redirect('post_detail', pk=pk)
+
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
@@ -123,25 +127,25 @@ def like_post(request, post_id):
     return redirect('post_detail', pk=post_id)
 
 
+
 def edit_comment(request, pk, comment_id):
-    if request.method == "POST":
-        post = get_object_or_404(Post, pk=pk)
-        queryset = post.comments.all()
-        comment = get_object_or_404(queryset, pk=comment_id)
+    post = get_object_or_404(Post, pk=pk)
+    comment = get_object_or_404(Comment, pk=comment_id)
+    
+    if request.user != comment.author:
+        messages.error(request, "You are not authorized to edit this comment.")
+        return redirect('post_detail', pk=pk)
 
-        if comment.author == request.user:
-            comment_form = CommentForm(request.POST, instance=comment)
-            if comment_form.is_valid():
-                comment = comment_form.save(commit=False)
-                comment.post = post
-                comment.save()
-                messages.success(request, "Comment updated successfully!", extra_tags='comment')
-            else:
-                messages.error(request, "Error updating comment", extra_tags='comment')
-        else:
-            messages.error(request, "You are not authorized to edit this comment.", extra_tags='comment')
+    if request.method == 'POST':
+        form = CommentForm(request.POST, request.FILES, instance=comment)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Comment updated successfully!")
+            return redirect('post_detail', pk=pk)
+    else:
+        form = CommentForm(instance=comment)
 
-    return HttpResponseRedirect(reverse('post_detail', kwargs={'pk': pk}))
+    return render(request, 'posts/edit_comment.html', {'form': form, 'post': post})
 
 
 def delete_comment(request, pk, comment_id):
