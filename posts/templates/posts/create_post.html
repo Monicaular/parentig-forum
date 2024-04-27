@@ -2,11 +2,13 @@
 {% load static %}
 
 {% block content %}
-<h1>Ask a question</h1>
-<form method="post" enctype="multipart/form-data">
+<div class="new-post-container">
+<h1 class="new-post-title">Post your question</h1>
+<form class="new-post-form" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Create Post</button>
+    <button id="new-post-btn" type="submit">Create Post</button>
 </form>
+</div>
 
 {% endblock %}

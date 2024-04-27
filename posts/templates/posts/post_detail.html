@@ -11,6 +11,12 @@
             <div class="alert alert-info">{{ message }}</div>
         {% endif %}
     {% endfor %}
+    <!--Comments messages-->
+    {% for message in messages %}
+    {% if 'comment' in message.tags %}
+        <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+    {% endif %}
+    {% endfor %}
     <!--Post-->
     <div class="row">
         <div class="col-12">
@@ -19,7 +25,7 @@
                     <h5 class="card-title post-title">{{ post.title }}</h5>
                     <p class="card-text">
                         <p class="post-author">by {{ post.author }}</p>
-                        <small class="text-muted">on {{ post.created_at }}</small>
+                        <small class="text-muted">on {{ post.created_at|date:"d M Y H:i" }}</small>
                     </p>
                     {% if post.content|urlize %}
                     {% autoescape off %}
@@ -62,6 +68,9 @@
                     <button class="btn btn-outline-secondary btn-sm delete-btn disabled" disabled>Delete</button>
                     {% endif %}
                 </div>
+                {% if post.created_at != post.updated_at %}
+                    <small class="text-muted"> Edited on: {{ post.updated_at|date:"d M Y H:i" }}</small>
+                {% endif %}
             </div>
 
             <!--Comment Form-->
@@ -83,12 +92,6 @@
             <div class="comments-section mt-4">
                 <h5>Comments ({{ post.comments.count }})</h5>
                 <hr>
-                <!--Comments messages-->
-                {% for message in messages %}
-                    {% if 'comment' in message.tags %}
-                        <div class="alert alert-{{ message.tags }}">{{ message }}</div>
-                    {% endif %}
-                {% endfor %}
                 <!--Comments Display-->
                 {% for comment in post.comments.all %}
                 <div class="card mb-3">

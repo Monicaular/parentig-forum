@@ -154,6 +154,75 @@ a {
     margin-bottom: 50px;
 }
 
+/*Post detail page*/
+
+/* New post page*/
+
+.new-post-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    margin-bottom: 50px;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#new-post-btn {
+    background-color: #6371A2ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+}
+
+#new-post-btn:hover {
+    background-color: #D87C3Cff;
+}
+
+.new-post-form label {
+    flex: 0 0 100px;
+    margin-right: 10px;
+}
+
+.new-post-title {
+    padding: 10px;
+    color: #2c3e50;
+}
+
+@media (max-width: 600px) {
+    .new-post-form {
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .new-post-form label {
+        flex: 0 0 auto;
+        margin-right: 0;
+    }
+
+    .new-post-form p {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
 /*Rules Page*/
 .rules-container {
     background-color: #9A8580ff;
