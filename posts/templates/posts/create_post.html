@@ -2,13 +2,15 @@
 {% load static %}
 
 {% block content %}
-<div class="new-post-container">
-<h1 class="new-post-title">Post your question</h1>
-<form class="new-post-form" method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button id="new-post-btn" type="submit">Create Post</button>
-</form>
+<div class="create-new-post">
+    <h1 class="new-post-title">Post your question</h1>
+    <div class="new-post-container">
+        <form class="new-post-form" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button id="new-post-btn" type="submit">Create Post</button>
+        </form>
+    </div>
 </div>
 
 {% endblock %}

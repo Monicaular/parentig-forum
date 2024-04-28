@@ -186,14 +186,25 @@ a {
 
 /* New post page*/
 
-.new-post-container {
+.create-new-post {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.new-post-container {
+    display: inline-block;
     min-height: 50vh;
     margin-bottom: 50px;
+    padding: 20px; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    background-color: rgba(99, 113, 162, 0.3);
+    margin-left: auto;
+    margin-right: auto;
 }
+
 
 label {
     margin-bottom: 5px;
@@ -227,11 +238,20 @@ input, textarea {
 .new-post-form label {
     flex: 0 0 100px;
     margin-right: 10px;
+    
 }
 
 .new-post-title {
     padding: 10px;
     color: #2c3e50;
+}
+
+@media (max-width: 768px) {
+    .new-post-container {
+        width: 90%;
+        margin: 10px auto;
+        padding: 15px; 
+    }
 }
 
 @media (max-width: 600px) {
@@ -248,6 +268,14 @@ input, textarea {
     .new-post-form p {
         flex-direction: column;
         align-items: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .new-post-container {
+        width: 95%;
+        margin: 5px auto;
+        padding: 10px;
     }
 }
 
