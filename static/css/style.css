@@ -119,14 +119,18 @@ a {
 
 .filtering-options {
     background-color: #f8f9fa;
-    border-left: 2px solid #dee2e6;
     padding: 20px;
     height: fit-content;
+    border: 2px solid #191747ff;
+    border-radius: 10px;
 }
 
 .post-title {
-    background-color: rgba(213, 220, 230, 0.8);
+    background-color: rgba(222, 210, 227, 1);
     padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #634189ff;
+
 }
 .post-title:hover {
     background-color: rgba(216, 124, 60, 0.8);
@@ -136,8 +140,10 @@ a {
     font-style: italic;
     font-size: 0.9rem;
     color: #F5F5F5ff;
-    background-color: #634189ff;
+    background-color: rgba(99, 65, 137, 0.8);
     padding: 5px;
+    border-radius: 10px;
+    border: 2px solid #191747ff;
 }
 
 .page-link{
@@ -149,6 +155,8 @@ a {
     justify-content: space-between;
     margin-bottom: 20px;
     background-color: rgba(213, 220, 230, 1);
+    border: 2px solid #191747ff;
+    border-radius: 10px;
 }
 
 #search-box {
@@ -178,14 +186,35 @@ a {
 
 /* Post detail page*/
 
-.card-img-bottom {
-    width: 200px;
-    height: auto;
+.edited-time {
+    padding: 10px;
+}
+
+.card {
+    margin: 10px auto;
+    max-width: 800px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(213, 220, 230, 1);
+    border-radius: 8px;
+    border: 2px solid #191747ff;
 }
 
 
-.comments-section {
-    margin-bottom: 50px;
+
+.card-img-bottom {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.comments-section,
+.edit-comment-container,
+.new-comment {
+    margin: 20px auto;
+    max-width: 800px;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
 }
 
 
@@ -489,6 +518,16 @@ input, textarea {
 
 
 /*Buttons styling*/
+
+#comment-link:hover {
+    color: #D87C3Cff;
+}
+.user-icon {
+    background-color: rgba(49, 47, 60, 1);
+    border-radius: 50%;
+    padding: 10px;
+}
+
 #submitBtn {
     background-color: rgba(99, 113, 162, 1);
     color:aliceblue;
@@ -560,18 +599,12 @@ input, textarea {
     color:aliceblue;
 }
 
-.like {
+.like,
+.unlike {
     color: red;
     border: none;
-    background-color: transparent;
+    padding: 10px 0;
 }
-
-.unlike{
-    color: red;
-    border: white;
-    background-color: white;
-}
-
 
 /*Authentification pages*/
 .sign-in-form {

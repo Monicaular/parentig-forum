@@ -24,8 +24,8 @@
                 <div class="card-body">
                     <h5 class="card-title post-title">{{ post.title }}</h5>
                     <p class="card-text">
-                        <p class="post-author">by {{ post.author }}</p>
-                        <small class="text-muted">on {{ post.created_at|date:"d M Y H:i" }}</small>
+                        <p class="post-author"><i class="fa-solid fa-user user-icon"></i> by {{ post.author }}</p>
+                        <small class="text-muted"> <i class="fa-solid fa-clock"></i> on {{ post.created_at }}</small>
                     </p>
                     {% if post.content|urlize %}
                     {% autoescape off %}
@@ -66,12 +66,12 @@
                     {% endif %}
                 </div>
                 {% if post.created_at != post.updated_at %}
-                    <small class="text-muted"> Edited on: {{ post.updated_at|date:"d M Y H:i" }}</small>
+                    <small class="text-muted edited-time"> Last edit: {{ post.updated_at }}</small>
                 {% endif %}
             </div>
 
             <!--Comment Form-->
-            <div class="mt-4">
+            <div class="mt-4 new-comment">
                 {% if user.is_authenticated %}
                 <div class="sticky-top">
                     <form id="commentForm" method="post" enctype="multipart/form-data">
@@ -94,9 +94,9 @@
                 <div class="card mb-3">
                     <div class="card-body">
                         <p class="card-text">
-                            <p class="post-author">{{ comment.author }}
+                            <p class="post-author"><i class="fa-solid fa-user user-icon"></i> {{ comment.author }}
                                 </p>
-                            <small class="text-muted" >{{ comment.created_at }}</small>
+                            <small class="text-muted"> <i class="fa-solid fa-clock"></i> {{ comment.created_at }}</small>
                         </p>
                         {% if comment.content|urlize %}
                         {% autoescape off %}

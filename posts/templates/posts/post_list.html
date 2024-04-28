@@ -21,14 +21,14 @@
 
     <!--Posts list-->
         <div class="row">
-            <h1>Conversations</h1>
+            <h1 class="centered-title">Posts</h1>
             <div class="col-md-8">
                 {% for post in post_list %}
                 <div class="card mb-3">
                     <div class="card-body">
                         <h5 class="card-title post-title"><a href="{% url 'post_detail' post.pk %}"
                                 class="post-link">{{ post.title }}</a></h5>
-                        <p class="card-text post-author">{{ post.author }} | {{ post.created_at }}</p>
+                        <p class="card-text post-author"> <i class="fa-solid fa-user user-icon"></i> {{ post.author }} | {{ post.created_at }}</p>
                         {% if post.content|wordcount > 60 %}
                         <p class="card-text">{{ post.content|truncatewords:60 }}
                             <a href="{% url 'post_detail' post.pk %}" class="btn btn-link p-0 m-0 align-baseline">Read
@@ -37,8 +37,8 @@
                         {% else %}
                         <p class="card-text">{{ post.content }}</p>
                         {% endif %}
-                        <p class="card-text"><i class="fa-solid fa-heart like"></i> {{ post.likes.count }} | <i
-                                class="fa-solid fa-comment"></i> {{ post.comments.count }} </p>
+                        <p class="card-text"><a href="{% url 'post_detail' post.pk %}"><i class="fa-solid fa-heart like"></i> {{ post.likes.count }} | <i
+                                class="fa-solid fa-comment" id="comment-link"></i> {{ post.comments.count }} </p>
                     </div>
                     {% if post.photo %}
                     <img class="card-img-top" src="{{ post.photo.url }}" alt="{{ post.title }}">
