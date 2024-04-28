@@ -176,13 +176,55 @@ a {
     }
 }
 
+/* Post detail page*/
 
-/*Post detail page*/
+.card-img-bottom {
+    width: 200px;
+    height: auto;
+}
+
 
 .comments-section {
     margin-bottom: 50px;
 }
 
+
+.urlized-link a {
+    color: #3498db;
+    text-decoration: none;
+
+}
+
+.urlized-link a:hover {
+    color: #2c3e50; 
+    text-decoration: underline;
+}
+
+#commentForm {
+    background-color:  rgba(213, 220, 230, 1);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+#div_id_content, #div_id_photo {
+    background-color: #ffffff;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#div_id_content textarea, #div_id_photo input {
+    width: 100%;
+}
+
+
+.form-label {
+    display: block; 
+    margin-bottom: 10px; 
+    color: #6371A2ff; 
+    font-weight: bold;
+}
 
 /* New post page*/
 
@@ -278,6 +320,50 @@ input, textarea {
         padding: 10px;
     }
 }
+
+/* Edit comment page */
+
+.edit-comment-container {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.edit-comment-header h1 {
+    margin-bottom: 20px;
+    background-color: rgba(99, 65, 137, 0.5);
+    padding: 10px;
+    border-radius: 10px;
+    color: #312F3Cff;
+}
+
+.edit-comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.edit-comment-form .btn {
+    width: auto;
+    padding: 10px 15px;
+    margin-top: 10px; 
+}
+
+.edit-comment-form {
+    background-color:  rgba(99, 113, 162, 0.3);
+    padding: 10px;
+    border-radius: 10px;
+    
+}
+
+@media (max-width: 768px) {
+    .edit-comment-container {
+        max-width: 90%;
+        padding: 15px;
+    }
+}
+
 
 /*Rules Page*/
 .rules-container {
@@ -380,7 +466,7 @@ input, textarea {
 .edit-btn:hover, 
 .delete-btn:hover, 
 .delete-comm-btn:hover, 
-.edit-comm-btn:hover  {
+.edit-comm-btn:hover {
     background-color: #D87C3Cff;
 }
 
@@ -396,6 +482,26 @@ input, textarea {
     color:aliceblue;
     margin-top: 20px;
 }
+
+.update-btn {
+    background-color: rgba(216, 124, 60, 1);
+    color: white;
+}
+
+.update-btn:hover {
+    background-color: rgba(99, 113, 162, 1);
+}
+
+.cancel-btn {
+    background-color: rgba(99, 65, 137, 1);
+    color: white;
+}
+
+.cancel-btn:hover {
+    background-color: rgba(49, 47, 60, 1);
+    color: #ccc;
+}
+
 
 .submit-button {
     background-color: rgba(99, 113, 162, 1);
@@ -420,44 +526,6 @@ input, textarea {
     background-color: white;
 }
 
-/* Post detail page*/
-
-.urlized-link a {
-    color: #3498db;
-    text-decoration: none;
-
-}
-
-.urlized-link a:hover {
-    color: #2c3e50; 
-    text-decoration: underline;
-}
-
-#commentForm {
-    background-color:  rgba(213, 220, 230, 1);
-    padding: 20px;
-    border-radius: 8px;
-}
-
-#div_id_content, #div_id_photo {
-    background-color: #ffffff;
-    padding: 15px;
-    margin-top: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-#div_id_content textarea, #div_id_photo input {
-    width: 100%;
-}
-
-
-.form-label {
-    display: block; 
-    margin-bottom: 10px; 
-    color: #6371A2ff; 
-    font-weight: bold;
-}
 
 /*Authentification pages*/
 .sign-in-form {
@@ -555,19 +623,6 @@ input, textarea {
 .swiper-button-next {
     right: 10px;
 }
-
-
-/* Post styling*/
-
-.card-img-bottom {
-    width: 200px;
-    height: auto;
-}
-
-
-/*Filter styling*/
-
-
 
 
 /* Styling the Fooer*/
