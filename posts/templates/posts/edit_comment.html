@@ -2,11 +2,15 @@
 {% load static %}
 
 {% block content %}
-<h1>Edit Comment</h1>
-  <form method="post" enctype="multipart/form-data">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit" class="btn btn-primary">Update</button>
-      <a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-secondary">Cancel</a>
-  </form>
+<div class="card p-4">
+  <div class="flex items-center mb-4">
+    <h1>Edit Comment</h1>
+      <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="btn btn-primary">Update</button>
+          <a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-secondary">Cancel</a>
+      </form>
+    </div>
+</div>
 {% endblock %}

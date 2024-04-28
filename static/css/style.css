@@ -57,7 +57,7 @@ a {
     text-decoration: underline;
 }
 
-.container {
+.home-container {
     width: 100%; 
     max-width: 1200px;
     margin: auto;
@@ -114,22 +114,16 @@ a {
     padding: 20px; 
 }
 
+
 /* Conversations Page*/
-.mb-2 {
-    margin: 20px;
+
+.filtering-options {
+    background-color: #f8f9fa;
+    border-left: 2px solid #dee2e6;
+    padding: 20px;
+    height: fit-content;
 }
 
-#search-box {
-    margin: 20px;
-}
-
-#post-question {
-    margin: 20px;
-}
-
-.col-md-4 {
-    background-color: rgba(154, 133, 128, 1);
-}
 .post-title {
     background-color: rgba(213, 220, 230, 0.8);
     padding: 10px;
@@ -150,12 +144,44 @@ a {
     margin-bottom: 20px;
 }
 
-.comments-section {
-    margin-bottom: 50px;
+.search-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    background-color: rgba(213, 220, 230, 1);
 }
+
+#search-box {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+#search_query {
+    height:38px;
+}
+
+.input-group .form-control {
+    border-right: 0;
+}
+
+@media (max-width: 767px) {
+    .row {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .filtering-options {
+        order: -1;
+    }
+}
+
 
 /*Post detail page*/
 
+.comments-section {
+    margin-bottom: 50px;
+}
 
 
 /* New post page*/
@@ -340,6 +366,7 @@ input, textarea {
     background-color: rgba(99, 113, 162, 1);
     border: none;
     color:aliceblue;
+    margin-top: 20px;
 }
 
 .submit-button {
