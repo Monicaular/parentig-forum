@@ -321,6 +321,50 @@ input, textarea {
     }
 }
 
+/* Edit post page */
+
+.edit-post-container {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.edit-post-header h1 {
+    margin-bottom: 20px;
+    background-color: rgba(99, 65, 137, 0.5);
+    padding: 10px;
+    border-radius: 10px;
+    color: #312F3Cff;
+}
+
+.edit-post-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.edit-post-form .btn {
+    width: auto;
+    padding: 10px 15px;
+    margin-top: 10px; 
+}
+
+.edit-post-form {
+    background-color:  rgba(99, 113, 162, 0.3);
+    padding: 10px;
+    border-radius: 10px;
+    
+}
+
+@media (max-width: 768px) {
+    .edit-post-container {
+        max-width: 90%;
+        padding: 15px;
+    }
+}
+
+
 /* Edit comment page */
 
 .edit-comment-container {
@@ -483,12 +527,14 @@ input, textarea {
     margin-top: 20px;
 }
 
-.update-btn {
+.update-btn,
+.save-btn {
     background-color: rgba(216, 124, 60, 1);
     color: white;
 }
 
-.update-btn:hover {
+.update-btn:hover,
+.save-btn:hover {
     background-color: rgba(99, 113, 162, 1);
 }
 
