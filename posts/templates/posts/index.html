@@ -2,36 +2,79 @@
 {% load static %}
 
 {% block content %}
-<div class="container home-container">
-    <!--Create a post button-->
-    <div class="row mt-3">
-        <div class="col-lg-12 text-right">
-            <a href="{% url 'post_list' %}" class="btn btn-primary add-post"> <i class="fa-solid fa-circle-plus"></i> Add a post</a>
-        </div>
-    </div>
-    <div class="hero-container">
-        <div class="row">
-            <!-- Column for the hero image and quote overlay -->
-            <div class="col-lg-6">
-                <div class="position-relative">
-                    <!--Hero Image-->
-                    <img src="{% static 'images/hero-image-mom-and-child-compressed.webp' %}" class="img-fluid"
-                        alt="mom holding her child up in front of a seaside">
-                    <!--Quote Overlay-->
-                    <div class="quote-overlay">
-                        <blockquote class="blockquote">
-                            <p class="mb-0">"Children are not things to be molded, but people to be unfolded."</p>
-                        </blockquote>
-                    </div>
-                </div>
+<!--Hero Image-->
+<div class="container mt-4">
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'images/carousel1.png' %}" class="d-block w-100" alt="...">
             </div>
-            <!--Column for hero content-->
+            <div class="carousel-item">
+                <img src="{% static 'images/carousel2.png' %}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/carousel3.png' %}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/carousel4.jpeg' %}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/carousel5.webp' %}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/carousel6.jpg' %}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/carousel7.png' %}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/carousel8.png' %}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/carousel9.png' %}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/carousel10.jpg' %}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/carousel10.jpg' %}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/carousel11.jpg' %}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/carousel12.jpg' %}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/carousel13.png' %}" class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+    </div>
+    <!--Introduction & Carousel-->
+    <div class="container">
+        <div class="row">
+            <!--Introduction text-->
             <div class="col-lg-6">
                 <div class="hero-content">
-                    <p>Welcome to our parenting forum! We are here to share wisdom and support on raising children, focusing
+                    <p>Welcome to our parenting forum! We are here to share wisdom and support on raising children,
+                        focusing
                         on
                         topics
-                        like breastfeeding, weaning, gentle parenting, and family-friendly food ideas. Whether you're a new
+                        like breastfeeding, weaning, gentle parenting, and family-friendly food ideas. Whether you're a
+                        new
                         parent or
                         a
                         seasoned caregiver, you'll find knowledge and encouragement here.
@@ -41,51 +84,24 @@
                         each
                         family's journey is unique. From breastfeeding troubleshooting to creative meal inspiration, our
                         forum is a
-                        welcoming space where caregivers can connect, learn, and grow together in their parenting journey.
+                        welcoming space where caregivers can connect, learn, and grow together in their parenting
+                        journey.
                         Join us as
                         we
                         navigate the joys and complexities of raising happy, healthy children in a supportive community.
                     </p>
                 </div>
             </div>
-        </div>
-        <!--Swiper Carousel-->
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <iframe src="https://www.youtube.com/embed/ePodw7L_mFM" frameborder="0"
-                        allowfullscreen></iframe>
-                </div>
-                <div class="swiper-slide">
-                    <iframe src="https://www.youtube.com/embed/SckUevGH-Pk" frameborder="0"
-                        allowfullscreen></iframe>
-                </div>
-                <div class="swiper-slide">
-                    <iframe src="https://www.youtube.com/embed/jyOt9aB6sOo" frameborder="0"
-                        allowfullscreen></iframe>
-                </div>
-                <div class="swiper-slide">
-                    <iframe src="https://www.youtube.com/embed/7e7QzOVKl-Y" frameborder="0"
-                        allowfullscreen></iframe>
-                </div>
-                <div class="swiper-slide">
-                    <iframe src="https://www.youtube.com/embed/suoccf8D1ns" frameborder="0"
-                        allowfullscreen></iframe>
-                </div>
-            </div>
-            <!-- Add navigation arrows -->
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-        </div>
+            <!-- Column for Bootstrap carousel -->
+            <div class="col-lg-6">
+           
     </div>
+</div>
 
-   
-    
-    {% endblock %}
 
-    {% block extras %}
-     <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <script src="{% static 'js/home.js' %}"></script>
-    {% endblock %}
+{% endblock %}
+
+{% block extras %}
+<!-- Swiper JS -->
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock %}

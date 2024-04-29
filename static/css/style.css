@@ -45,84 +45,15 @@ a {
 
 /* Styling the homepage*/
 
-.auth-info {
-    color: #312F3Cff;
-    background-color: rgba(213, 220, 230, 1);
-    margin-top: 1.25rem;
-    opacity: 1;
-    transition: opacity 2s ease-out;
-    animation: fadeOutMessage 5s forwards;
-
-}
-
-@keyframes fadeOutMessage {
-    0% { opacity: 1; }
-    80% { opacity: 1; }
-    100% { opacity: 0; }
-}
-
 .user {
     font-weight: 600;
     text-decoration: underline;
 }
 
-.home-container {
-    width: 100%; 
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
+.carousel-inner img {
+    height: 65vh; 
+    object-fit: cover;
 }
-
-.hero-container .row {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 -15px;
-}
-
-.position-relative {
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-
-.position-relative .blockquote .quote-overlay {
-    position: absolute; 
-    bottom: 0; 
-    background: rgb(0, 0, 0); 
-    background: rgba(0, 0, 0, 0.5);
-    color: #f1f1f1;
-    width: 100%;
-    border-radius: 0 0 10px 10px;
-}
-
-
-.img-fluid {
-    border-radius: 10px;
-    margin-top: 15px;
-}
-
-
-.hero-content {
-    padding: 20px;
-    background-color: rgba(99, 113, 162, 0.5);
-    border-radius: 20px;
-    margin-top: 15px;
-}
-
-
-.blockquote {
-    position: absolute; 
-    bottom: 0; 
-    background: rgb(0, 0, 0); 
-    background: rgba(205, 199, 193, 0.5); 
-    color: black;
-    font-family: "Nanum Gothic", sans-serif;
-    font-weight: 600;
-    width: 100%; 
-    padding: 20px; 
-}
-
 
 /* Conversations Page*/
 
