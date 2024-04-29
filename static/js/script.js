@@ -28,11 +28,4 @@ document.addEventListener('DOMContentLoaded', function() {
             messages.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
     };
-
-    let authInfo = document.querySelector('.auth-info');
-    if (authInfo) {
-        setTimeout(function() {
-            authInfo.style.display = 'none';
-        }, 5000);
-    }
  });
