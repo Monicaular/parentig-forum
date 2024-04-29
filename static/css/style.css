@@ -49,7 +49,16 @@ a {
     color: #312F3Cff;
     background-color: rgba(213, 220, 230, 1);
     margin-top: 1.25rem;
+    opacity: 1;
+    transition: opacity 2s ease-out;
+    animation: fadeOutMessage 5s forwards;
 
+}
+
+@keyframes fadeOutMessage {
+    0% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
 }
 
 .user {
@@ -185,6 +194,19 @@ a {
 }
 
 /* Post detail page*/
+
+.messages {
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    max-width: 90%;
+    z-index: 1050;
+}
+.alert {
+    width: 100%;
+}
 
 .edited-time {
     padding: 10px;

@@ -5,18 +5,19 @@
 
 {% block content %}
 <div class="container mt-4">
-    <!--Messages-->
-    {% for message in messages %}
-        {% if 'general' in message.tags %}
-            <div class="alert alert-info">{{ message }}</div>
-        {% endif %}
-    {% endfor %}
-    <!--Comments messages-->
-    {% for message in messages %}
-    {% if 'comment' in message.tags %}
-        <div class="alert alert-{{ message.tags }}">{{ message }}</div>
-    {% endif %}
-    {% endfor %}
+     <!-- Message display section -->
+     
+     {% if messages %}
+     <div class="messages">
+         {% for message in messages %}
+         <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+             {{ message }}
+             <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+         </div>
+         {% endfor %}
+  
+     {% endif %}
+    </div>
     <!--Post-->
     <div class="row">
         <div class="col-12">
@@ -37,12 +38,6 @@
                     {% if post.photo %}
                     <img src="{{ post.photo.url }}" class="card-img-bottom" alt="{{ post.title }}">
                     {% endif %}
-                    <!--Like Messages-->
-                    {% for message in messages %}
-                        {% if 'like-post' in message.tags %}
-                            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
-                        {% endif %}
-                    {% endfor %}
                     <!--Post Interaction Area-->
                     {% if user.is_authenticated and user in post.likes.all %}
                     <form id="unlike-form" action="{% url 'like_post' post.id %}" method="post">
@@ -108,12 +103,6 @@
                         {% if comment.photo %}
                         <img src="{{ comment.photo.url }}" class="card-img-bottom" alt="Comment Image">
                         {% endif %}
-                        <!--Like Comment Messages-->
-                        {% for message in messages %}
-                            {% if 'like-comm' in message.tags %}
-                                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
-                            {% endif %}
-                        {% endfor %}
                         {% if user.is_authenticated and user in comment.likes.all %}
                         <form id="unlike-comment-form" action="{% url 'like_comment' comment.id %}" method="post">
                             {% csrf_token %}

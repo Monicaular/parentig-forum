@@ -21,4 +21,18 @@ document.addEventListener('DOMContentLoaded', function() {
             deleteCommentModal.show();
         });
     }
+
+    window.onload = function() {
+        const messages = document.querySelector('.messages');
+        if (messages) {
+            messages.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    };
+
+    let authInfo = document.querySelector('.auth-info');
+    if (authInfo) {
+        setTimeout(function() {
+            authInfo.style.display = 'none';
+        }, 5000);
+    }
  });
