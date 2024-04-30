@@ -39,8 +39,13 @@ class PostsView(ListView):
 
         return queryset
 
-class HomeView(TemplateView):
+class HomeView(ListView):
     template_name = 'posts/index.html'
+    context_object_name = 'posts'
+    
+    def get_queryset(self):
+        return Post.objects.filter(is_featured=True).order_by('-created_at')[:5]
+
 
 @login_required
 def post_detail(request, pk):

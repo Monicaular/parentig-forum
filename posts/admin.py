@@ -4,9 +4,10 @@ from .models import Post, Tag, Comment, Resource, ResourceLink, ContactRequest, 
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'created_at', 'updated_at')
-    list_filter = ('author', 'updated_at')
+    list_display = ('title', 'author', 'created_at', 'updated_at', 'is_featured', )
+    list_filter = ('author', 'updated_at', 'is_featured', )
     search_fields = ('title', 'content')
+    list_editable = ('is_featured', )
 
 
 @admin.register(Tag)
