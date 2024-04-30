@@ -4,81 +4,26 @@
 {% block content %}
 
 <div class="container mt-4">
-    <!--Search bar & Post question link-->
     <div class="row mb-3">
-        <div class="col-12 search-container">
-            <div class="search-area">
+        <div class="col-lg-8">
             <form id="search-box" method="get" action="{% url 'post_list' %}">
                 <input type="text" name="search_query" id="search_query" placeholder="Search posts...">
                 <button type="submit" class="btn submit-button">Search</button>
             </form>
         </div>
-        <div id="post-question">
-            <span><a href="{% url 'create_post' %}" class="btn add-post"><i class="fa-solid fa-circle-plus"></i> Add Post</a></span>
+        <div class="col-lg-4 text-lg-end">
+            <a href="{% url 'create_post' %}" class="btn add-post"><i class="fa-solid fa-circle-plus"></i> Add Post</a>
         </div>
     </div>
-    </div>
-
-    <!--Posts list-->
-        <div class="row">
-            <h1 class="centered-title">Posts</h1>
-            <div class="col-md-8">
-                {% for post in post_list %}
-                <div class="card post-list-box mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title post-title"><a href="{% url 'post_detail' post.pk %}"
-                                class="post-link">{{ post.title }}</a></h5>
-                        <p class="card-text post-author"> <i class="fa-solid fa-user user-icon"></i> {{ post.author }} | {{ post.created_at }}</p>
-                        {% if post.content|wordcount > 60 %}
-                        <p class="card-text">{{ post.content|truncatewords:60 }}
-                            <a href="{% url 'post_detail' post.pk %}" class="btn btn-link p-0 m-0 align-baseline">Read
-                                more</a>
-                        </p>
-                        {% else %}
-                        <p class="card-text">{{ post.content }}</p>
-                        {% endif %}
-                        <p class="card-text">
-                            <span class="badge like-count">
-                                <i class="fa-solid fa-heart like"></i> {{ post.likes.count }}
-                            </span> |
-                            <span class="badge comment-count">
-                                <a href="{% url 'post_detail' post.pk %}"><i class="fa-solid fa-comment"></i> {{ post.comments.count }}</a>
-                            </span>
-                        </p>
-                    </div>
-                    {% if post.photo %}
-                    <img class="card-img-top" src="{{ post.photo.url }}" alt="{{ post.title }}">
-                    {% endif %}
-                </div>
-                {% endfor %}
-
-                <!--Pagination-->
-                {% if is_paginated %}
-                <nav aria-label="Page navigation">
-                    <ul class="pagination">
-                        {% if page_obj.has_previous %}
-                        <li class="page-item">
-                            <a class="page-link" href="?page={{ page_obj.previous_page_number }}" tabindex="-1"
-                                aria-disabled="true">Prev</a>
-                        </li>
-                        {% endif %}
-                        {% if page_obj.has_next %}
-                        <li class="page-item">
-                            <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
-                        </li>
-                        {% endif %}
-                    </ul>
-                </nav>
-                {% endif %}
-            </div>
-
-
-            <!-- Filtering Options -->
-            <div class="col-md-4 filtering-options">
-                <form method="get" action="{% url 'post_list' %}" class="mb-3">
-                    <div class="mb-2">
-                        <label for="age">Filter by Age:</label>
-                        <select name="age" id="age">
+    <div class="row">
+        <!-- Filtering Sidebar -->
+        <div class="col-md-4 mb-4">
+            <div class="bg-light p-3 rounded">
+                <h5>Filter Posts</h5>
+                <form method="get" action="{% url 'post_list' %}">
+                    <div class="mb-3">
+                        <label for="age" class="form-label">Filter by Age:</label>
+                        <select name="age" id="age" class="form-select">
                             <option value="">All</option>
                             <option value="0">0-2 years</option>
                             <option value="1">2-4 years</option>
@@ -86,9 +31,9 @@
                             <option value="3">Teenagers</option>
                         </select>
                     </div>
-                    <div class="mb-2">
-                        <label for="category">Filter by Category:</label>
-                        <select name="category" id="category">
+                    <div class="mb-3">
+                        <label for="category" class="form-label">Filter by Category:</label>
+                        <select name="category" id="category" class="form-select">
                             <option value="">All</option>
                             <option value="Feeding & Nutrition">Feeding & Nutrition</option>
                             <option value="Health Concerns">Health Concerns</option>
@@ -105,7 +50,65 @@
                 </form>
             </div>
         </div>
+
+
+        <!--Posts Listing-->
+        <div class="col-md-8">
+            <h1 class="centered-title mb4">Posts</h1>
+            <div class="row">
+                {% for post in post_list %}
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h5>
+                            <p class="card-text mb-2 post-author"> <i class="fa-solid fa-user user-icon"></i>
+                            {{ post.author }} | {{ post.created_at }}</p>
+                            {% if post.content|wordcount > 60 %}
+                            <p class="card-text mb-auto">{{ post.content|truncatewords:60 }}
+                                <a href="{% url 'post_detail' post.pk %}"
+                                    class="btn btn-link p-0 m-0 align-baseline">Read
+                                    more</a></p>
+                            {% else %}
+                            <p class="card-text">{{ post.content }}</p>
+                            {% endif %}
+                            <p class="card-text">
+                                <span class="badge like-count">
+                                    <i class="fa-solid fa-heart like"></i> {{ post.likes.count }}
+                                </span> |
+                                <span class="badge comment-count">
+                                    <a href="{% url 'post_detail' post.pk %}"><i class="fa-solid fa-comment"></i>
+                                        {{ post.comments.count }}</a>
+                                </span>
+                            </p>
+                        </div>
+                        {% if post.photo %}
+                        <img class="card-img-top" src="{{ post.photo.url }}" alt="{{ post.title }}">
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <!--Pagination-->
+            {% if is_paginated %}
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    {% if page_obj.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}" tabindex="-1"
+                            aria-disabled="true">Prev</a>
+                    </li>
+                    {% endif %}
+                    {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+            {% endif %}
         </div>
+
+
 
         {% endblock %}
 

@@ -138,24 +138,35 @@ a {
     color: white;
 }
 
-/* Conversations Page*/
+/* Posts list Page*/
 
-.filtering-options {
-    background-color: #f8f9fa;
-    padding: 20px;
-    height: fit-content;
-    border: 2px solid #191747ff;
-    border-radius: 10px;
+.card {
+    display: flex;
+    flex-direction: column;
 }
 
-.post-title {
+.card-body {
+    flex: 1;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-text {
+    max-height: 300px;
+}
+
+.card-title {
     background-color: rgba(222, 210, 227, 1);
     padding: 10px;
     border-radius: 10px;
     border: 2px solid #634189ff;
 
 }
-.post-title:hover {
+.card-title:hover {
     background-color: rgba(216, 124, 60, 0.8);
 }
 
@@ -169,18 +180,6 @@ a {
     border: 2px solid #191747ff;
 }
 
-.page-link{
-    margin-bottom: 20px;
-}
-
-.search-container {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    background-color: rgba(213, 220, 230, 1);
-    border: 2px solid #191747ff;
-    border-radius: 10px;
-}
 
 #search-box {
     display: flex;
@@ -192,20 +191,11 @@ a {
     height:38px;
 }
 
-.input-group .form-control {
-    border-right: 0;
+.link-more {
+    display: block; 
+    margin-top: 0.5rem;
 }
 
-@media (max-width: 767px) {
-    .row {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .filtering-options {
-        order: -1;
-    }
-}
 
 /* Post detail page*/
 
@@ -593,12 +583,12 @@ input, textarea {
     color:white
 }
 
-.add-post {
+/* .add-post {
     background-color: rgba(99, 113, 162, 1);
     border: none;
     color:aliceblue;
     margin-top: 20px;
-}
+} */
 
 .update-btn,
 .save-btn {
