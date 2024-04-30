@@ -24,7 +24,7 @@
             <h1 class="centered-title">Posts</h1>
             <div class="col-md-8">
                 {% for post in post_list %}
-                <div class="card mb-3">
+                <div class="card post-list-box mb-3">
                     <div class="card-body">
                         <h5 class="card-title post-title"><a href="{% url 'post_detail' post.pk %}"
                                 class="post-link">{{ post.title }}</a></h5>
@@ -37,8 +37,14 @@
                         {% else %}
                         <p class="card-text">{{ post.content }}</p>
                         {% endif %}
-                        <p class="card-text"><a href="{% url 'post_detail' post.pk %}"><i class="fa-solid fa-heart like"></i> {{ post.likes.count }} | <i
-                                class="fa-solid fa-comment" id="comment-link"></i> {{ post.comments.count }} </p>
+                        <p class="card-text">
+                            <span class="badge like-count">
+                                <i class="fa-solid fa-heart like"></i> {{ post.likes.count }}
+                            </span> |
+                            <span class="badge comment-count">
+                                <a href="{% url 'post_detail' post.pk %}"><i class="fa-solid fa-comment"></i> {{ post.comments.count }}</a>
+                            </span>
+                        </p>
                     </div>
                     {% if post.photo %}
                     <img class="card-img-top" src="{{ post.photo.url }}" alt="{{ post.title }}">
