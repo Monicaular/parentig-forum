@@ -21,9 +21,9 @@
     <!--Post-->
     <div class="row">
         <div class="col-12">
-            <div class="card post-detail-box">
-                <div class="card-body">
-                    <h5 class="card-title post-title">{{ post.title }}</h5>
+            <div class="card">
+                <div class="card-body ">
+                    <h5 class="card-title">{{ post.title }}</h5>
                     <p class="card-text">
                         <p class="post-author"><i class="fa-solid fa-user user-icon"></i> by {{ post.author }}</p>
                         <small class="text-muted"> <i class="fa-solid fa-clock"></i> on {{ post.created_at }}</small>
@@ -36,7 +36,7 @@
                     <p id="post{{ post.id }}" class="card-text">{{ post.content }}</p>
                     {% endif %}
                     {% if post.photo %}
-                    <img src="{{ post.photo.url }}" class="card-img-bottom" alt="{{ post.title }}">
+                    <img src="{{ post.photo.url }}" class="card-img-top" alt="{{ post.title }}">
                     {% endif %}
                     <!--Post Interaction Area-->
                     {% if user.is_authenticated and user in post.likes.all %}
