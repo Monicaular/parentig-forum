@@ -69,7 +69,13 @@
                     <form id="commentForm" method="post" enctype="multipart/form-data">
                         {{ comment_form | crispy }}
                         {% csrf_token %}
-                        <button id="submitBtn" type="submit" class="btn btn-lg">Submit</button>
+                        <label for="id_photo" class="custom-file-upload">
+                            <i class="fa-solid fa-file-arrow-up"></i> Add photo
+                        </label>
+                        <div class="add-photo">
+                            <input id="id_photo" name="photo" type="file"/>
+                            <button type="submit" class="btn submit-button">Submit</button>
+                        </div>
                     </form>
                 {% else %}
                     <p class="mt-4">Please <a href="{% url 'account_login' %}">sign in</a> to comment.</p>

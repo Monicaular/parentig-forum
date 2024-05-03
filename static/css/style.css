@@ -11,6 +11,13 @@ a {
     text-decoration: none;
     color: black;
 }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* Navbar*/
 
 .navbar-brand {
@@ -43,7 +50,7 @@ a {
     background-color: rgba(216, 124, 60, 1);
 }
 
-/* Styling the homepage*/
+/* Home Page*/
 
 .user {
     font-weight: 600;
@@ -138,7 +145,7 @@ a {
     color: white;
 }
 
-/* Posts list Page*/
+/* Posts list page*/
 
 .posts-grid {
     display: grid;
@@ -219,15 +226,21 @@ a {
     margin-top: 0.5rem;
 }
 
-@media (max-width: 1024px) {
-    .posts-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-
 /* Post detail page*/
 
+#div_id_photo,
+#id_photo {
+    display: none;
+}
+
+.custom-file-upload i {
+    color: #3498db;
+    font-size: 20px;
+}
+
+.custom-file-upload i:hover {
+    color: #D87C3Cff;
+}
 .custom-alert {
     background-color: #2c3e50;
     color: white;
@@ -307,6 +320,10 @@ a {
     border-radius: 8px;
 }
 
+.add-photo {
+    display: flex;
+    justify-content: space-between;
+}
 #div_id_content, #div_id_photo {
     background-color: #ffffff;
     padding: 15px;
@@ -325,13 +342,6 @@ a {
     margin-bottom: 10px; 
     color: #6371A2ff; 
     font-weight: bold;
-}
-
-@media (max-width: 768px) {
-    .card-img-bottom {
-        width: 100%;
-        height: auto;
-    }
 }
 
 /* New post page*/
@@ -354,7 +364,6 @@ a {
     margin-left: auto;
     margin-right: auto;
 }
-
 
 label {
     margin-bottom: 5px;
@@ -396,39 +405,6 @@ input, textarea {
     color: #2c3e50;
 }
 
-@media (max-width: 768px) {
-    .new-post-container {
-        width: 90%;
-        margin: 10px auto;
-        padding: 15px; 
-    }
-}
-
-@media (max-width: 600px) {
-    .new-post-form {
-        padding: 10px;
-        margin: 10px;
-    }
-
-    .new-post-form label {
-        flex: 0 0 auto;
-        margin-right: 0;
-    }
-
-    .new-post-form p {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-}
-
-@media (max-width: 480px) {
-    .new-post-container {
-        width: 95%;
-        margin: 5px auto;
-        padding: 10px;
-    }
-}
-
 /* Edit post page */
 
 .edit-post-container {
@@ -464,14 +440,6 @@ input, textarea {
     border-radius: 10px;
     
 }
-
-@media (max-width: 768px) {
-    .edit-post-container {
-        max-width: 90%;
-        padding: 15px;
-    }
-}
-
 
 /* Edit comment page */
 
@@ -510,24 +478,22 @@ input, textarea {
     
 }
 
-@media (max-width: 768px) {
-    .edit-comment-container {
-        max-width: 90%;
-        padding: 15px;
-    }
-}
-
-
 /*Rules Page*/
+
 .rules-container {
-    background-color: #9A8580ff;
     border-radius: 20px;
-    padding: 20px;
+    padding: 20px 10px;
+    display: flex;
     list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
 .rules-title {
     text-align: center;
     color: #2c3e50;
+    display: block;
 }
 
 .rule-name {
@@ -538,6 +504,11 @@ input, textarea {
 
 .resources-container {
     margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.resources-container h1 {
+    margin-bottom: 10px;
 }
 
 .resources-list {
@@ -579,23 +550,6 @@ input, textarea {
 .download-btn:hover {
     background-color: #2c3e50;
 }
-
-@media (min-width: 768px) { 
-    .resource-item {
-        flex-direction: row;
-        align-items: center;
-    }
-
-    .resource-image {
-        flex: 0 0 50%;
-    }
-
-    .resource-content {
-        flex: 1;
-        padding-left: 20px;
-    }
-}
-
 
 /*Buttons styling*/
 
@@ -790,6 +744,14 @@ input, textarea {
 
 }
 
+/*Media queries*/
+
+@media (max-width: 1024px) {
+    .posts-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 @media (max-width: 992px) {
     .hero-container .row {
         flex-direction: column;
@@ -800,4 +762,66 @@ input, textarea {
     .hero-content, .position-relative {
         flex: 0 0 100%;
     }
+
+    .edit-post-container {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    .card-img-bottom {
+        width: 100%;
+        height: auto;
+    }
+    
+    .new-post-container {
+        width: 90%;
+        margin: 10px auto;
+        padding: 15px; 
+    }
+
+    .new-post-form {
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .new-post-form label {
+        flex: 0 0 auto;
+        margin-right: 0;
+    }
+
+    .new-post-form p {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .edit-comment-container {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    .rules-container {
+        margin-top: 30px;
+    }
 }
+
+
+@media (min-width: 400px) { 
+    .resource-item {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .resource-image {
+        flex: 0 0 50%;
+    }
+
+    .resource-content {
+        flex: 1;
+        padding-left: 20px;
+    }
+
+    
+}
+
+
+

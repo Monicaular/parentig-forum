@@ -2,10 +2,10 @@
 {% load static %}
 
 {% block content %}
-
-<div class="container">
+<div class="rules-container">
+<div class="card p-4 shadow">
     <h1 class="rules-title">Forum Rules</h1>
-    <ul class="rules-container">
+    <ul>
         {% for rule in rules %}
         <li>
             <strong class="rule-name" >{{ rule.title }}</strong>:
@@ -15,6 +15,7 @@
         <li>No rules have been set.</li>
         {% endfor %}
     </ul>
+</div>
 </div>
 
 {% endblock %}
