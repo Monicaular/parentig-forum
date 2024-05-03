@@ -480,6 +480,7 @@ input, textarea {
     margin: 30px auto;
     padding: 20px;
     border-radius: 8px;
+    box-shadow: 2px 2px 8px #312F3Cff;
 }
 
 .edit-comment-header h1 {
@@ -655,13 +656,13 @@ input, textarea {
 }
 
 .cancel-btn {
-    background-color: rgba(99, 65, 137, 1);
+    background-color: rgba(99, 65, 137, 0.5);
     color: white;
 }
 
 .cancel-btn:hover {
     background-color: rgba(49, 47, 60, 1);
-    color: #ccc;
+    color: white;
 }
 
 
@@ -695,16 +696,32 @@ input, textarea {
 }
 
 /*Authentification pages*/
-.sign-in-form {
+
+.form-container {
+
+    max-width: 600px;
+    margin: auto;
+    padding: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); 
+    background-color: #fff;
+    border-radius: 8px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.sign-in-form,
+.sign-out-form {
     display: flex;
     justify-content: center;
     padding: 20px;
+    flex-direction: column;
+    
 }
 .sign-in-title,
 .sign-out-title,
 .sign-up-title {
     text-align: center;
-    padding: 20px;
+    padding: 15px;
     color:#2c3e50;
 }
 
@@ -718,6 +735,11 @@ input, textarea {
     color: #2c3e50;
 }
 
+.sign-out-text {
+    padding: 15px;
+    font-weight: 700;
+}
+
 .sign-in-button,
 #reset-password-btn,
 .sign-out-btn,
@@ -725,8 +747,7 @@ input, textarea {
     background-color: #6371A2ff;
     color: white;
     border: none;
-    padding: 10px;
-    border-radius: 10px;
+    border-radius: 5px;
 
 }
 .sign-in-button:hover,
@@ -748,6 +769,16 @@ input, textarea {
 #contact-link {
     color: #6371A2ff;
     text-decoration: underline;
+}
+
+.link {
+    font-weight: 700;
+    color:  #6371A2ff;
+}
+
+.link:hover {
+    color: #D87C3Cff;
+
 }
 
 /* Styling the Fooer*/

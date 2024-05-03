@@ -4,21 +4,21 @@
 {% block head_title %}{% trans "Sign Out" %}{% endblock head_title %}
 
 {% block content %}
-<div class="container">
+<div class="form-container card p-4 shadow">
     <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2 sign-out-form">
             <h1 class="sign-out-title">{% trans "Sign Out" %}</h1>
-
-            <p>{% trans 'Are you sure you want to sign out?' %}</p>
-
-            <form method="post" action="{% url 'account_logout' %}">
-                {% csrf_token %}
-                {% if redirect_field_value %}
-                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-                {% endif %}
-                <button class="btn btn-primary sign-out-btn" type="submit">{% trans 'Sign Out' %}</button>
-            </form>
+            <div class="sign-out-form">
+                <p class="sign-out-text">{% trans 'Are you sure you want to sign out?' %}</p>
+                <form method="post" action="{% url 'account_logout' %}">
+                    {% csrf_token %}
+                    {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+                    {% endif %}
+                    <button class="btn sign-out-btn" type="submit">{% trans 'Sign Out' %}</button>
+                    <button type="button" class="btn btn-secondary cancel-btn" onclick="window.history.back();">{% trans 'Cancel' %}</button>
+                </form>
         </div>
-    </div>
+        </div>
+   
 </div>
 {% endblock content %}
