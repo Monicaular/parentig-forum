@@ -11,11 +11,26 @@ from django.db.models import Q
 
 
 class PostsView(ListView):
+    """
+    A view that lists all posts, ordered by creation date in descending order. It supports pagination,
+    filtering by age and category, and keyword search.
+
+    Attributes:
+        queryset (QuerySet): Initial queryset of Post objects.
+        template_name (str): The path to the template used for rendering the posts.
+        paginate_by (int): Number of posts displayed per page.
+    """
     queryset = Post.objects.all().order_by("-created_at")
     template_name = "posts/post_list.html"
     paginate_by = 4
 
     def get_queryset(self):
+        """
+        Extends the base queryset with filtering capabilities based on the request's GET parameters.
+        
+        Returns:
+            QuerySet: The filtered queryset based on age, category, and search query.
+        """
         queryset = Post.objects.all().order_by("-created_at")
 
         # Filtering by age
@@ -40,15 +55,42 @@ class PostsView(ListView):
         return queryset
 
 class HomeView(ListView):
+    """
+    Home page view that lists featured posts, limited to the five most recent ones.
+
+    Attributes:
+        template_name (str): Specifies the path to the template used for rendering the home page.
+        context_object_name (str): Name of the context object used to return the queryset in the template.
+    """
     template_name = 'posts/index.html'
     context_object_name = 'posts'
     
     def get_queryset(self):
-        return Post.objects.filter(is_featured=True).order_by('-created_at')[:5]
+        """
+        Retrieves the top five featured posts ordered by their creation date in descending order.
+        
+        Returns:
+            QuerySet: The queryset of the top five featured posts.
+        """
+        return Post.objects.filter(is_featured=True).order_by('-created_at')[:6]
 
 
 @login_required
 def post_detail(request, pk):
+    """
+    A view that displays a detailed page for a specific post by primary key (pk). It includes comments and a form to submit a comment.
+    If a POST request is made, it processes the submitted comment form.
+
+    Parameters:
+        request (HttpRequest): The request object used to generate the response.
+        pk (int): The primary key of the Post object to retrieve.
+
+    Template:
+        posts/post_detail.html
+
+    Returns:
+        HttpResponse: A response object containing the rendered template.
+    """
     queryset = Post.objects.all()
     post = get_object_or_404(queryset, pk=pk)
     comments = post.comments.all().order_by("-created_at")
@@ -86,6 +128,21 @@ def post_detail(request, pk):
 
 @login_required
 def create_post(request):
+    """
+    View for creating a new post. Handles both GET and POST requests. If the request is POST,
+    it attempts to save the new post based on the form data. Redirects to the post detail page
+    upon successful post creation.
+
+    Parameters:
+        request (HttpRequest): The request object used to generate this response.
+
+    Template:
+        posts/create_post.html
+
+    Returns:
+        HttpResponse: A response object containing the rendered template on GET or 
+                      a redirect on successful POST.
+    """
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
@@ -99,6 +156,22 @@ def create_post(request):
 
 @login_required
 def edit_post(request, pk):
+    """
+    Allows a user to edit an existing post, identified by its primary key (pk).
+    Redirects to the post detail page upon successful update or back to the edit
+    form if validation fails.
+
+    Parameters:
+        request (HttpRequest): The request object used to generate this response.
+        pk (int): The primary key of the Post to edit.
+
+    Template:
+        posts/edit_post.html
+
+    Returns:
+        HttpResponse: Redirects to the post detail page on successful update or 
+                      renders the edit form again with error messages on failure.
+    """
     post = get_object_or_404(Post, pk=pk)
 
     if request.user != post.author:
@@ -117,6 +190,18 @@ def edit_post(request, pk):
 
 @login_required
 def delete_post(request, pk):
+    """
+    Deletes a post identified by its primary key (pk) upon POST request. Users are only allowed
+    to delete their own posts. Redirects to the post list after deletion.
+
+    Parameters:
+        request (HttpRequest): The request object used to generate this response.
+        pk (int): The primary key of the Post to delete.
+
+    Returns:
+        HttpResponseRedirect: Redirects to the post list view after deletion or back to the post detail 
+                             view if not a POST request.
+    """
     post = get_object_or_404(Post, pk=pk)
 
     if request.method == 'POST':
@@ -126,6 +211,17 @@ def delete_post(request, pk):
 
 @login_required
 def like_post(request, post_id):
+    """
+    Allows a user to like or unlike a post identified by its post_id. This view toggles the like status:
+    if the user has already liked the post, it removes their like; otherwise, it adds a like from the user.
+
+    Parameters:
+        request (HttpRequest): The request object used to generate this response.
+        post_id (int): The ID of the Post to like or unlike.
+
+    Returns:
+        HttpResponseRedirect: Redirects to the post detail view of the liked or unliked post.
+    """
     post = Post.objects.get(id=post_id)
     if request.user.is_authenticated:
         if post.likes.filter(id=request.user.id).exists():
@@ -139,6 +235,18 @@ def like_post(request, post_id):
 
 @login_required
 def edit_comment(request, pk, comment_id):
+    """
+    Allows a user to edit an existing comment, identified by its primary key (comment_id),
+    on a post identified by its primary key (pk).
+
+    Parameters:
+        request (HttpRequest): The request object used to generate the response.
+        pk (int): The primary key of the Post associated with the comment.
+        comment_id (int): The primary key of the Comment to edit.
+
+    Returns:
+        HttpResponseRedirect: Redirects to the post detail page after the comment is edited or in case of form errors.
+    """
     post = get_object_or_404(Post, pk=pk)
     comment = get_object_or_404(Comment, pk=comment_id)
     
@@ -160,7 +268,17 @@ def edit_comment(request, pk, comment_id):
 @login_required
 def delete_comment(request, pk, comment_id):
     """
-    View to delete comment
+    Allows the author of a comment to delete their own comment.
+    Ensures that users can only delete comments they authored.
+
+    Parameters:
+        request (HttpRequest): The request object used to generate this response.
+        pk (int): The primary key of the Post that the comment is associated with.
+        comment_id (int): The primary key of the Comment to delete.
+
+    Returns:
+        HttpResponseRedirect: Redirects to the post detail view after deleting
+        the comment or displays an error message if the user is not authorized to delete the comment.
     """
     post = get_object_or_404(Post, pk=pk)
     comment = get_object_or_404(Comment, pk=comment_id)
@@ -175,6 +293,18 @@ def delete_comment(request, pk, comment_id):
 
 @login_required
 def like_comment(request, comment_id):
+    """
+    Allows a user to like or unlike a comment identified by its comment_id. This view toggles the like status:
+    if the user has already liked the comment, it removes their like; otherwise, it adds a like from the user.
+
+    Parameters:
+        request (HttpRequest): The request object used to generate this response.
+        comment_id (int): The ID of the Comment to like or unlike.
+
+    Returns:
+        HttpResponseRedirect: Redirects to the post detail view of the post associated with the commented,
+                             allowing the user to see the updated like status.
+    """
     comment = Comment.objects.get(id=comment_id)
     if request.user.is_authenticated:
         if request.user in comment.likes.all():
@@ -189,6 +319,18 @@ def like_comment(request, comment_id):
 
 
 def rules_view(request):
+    """
+    Displays the forum rules retrieved from the Rule model.
+
+    Parameters:
+        request (HttpRequest): The request object used to generate this response.
+
+    Template:
+        posts/rules.html
+
+    Returns:
+        HttpResponse: Renders the rules template with the list of all forum rules.
+    """
     rules = Rule.objects.all()
     return render(request,
     'posts/rules.html',
@@ -197,6 +339,19 @@ def rules_view(request):
 )
 
 def resources(request):
+    """
+    Displays available resources and links to external resources. Retrieves all resources
+    from the Resource model and resource links from the ResourceLink model.
+
+    Parameters:
+        request (HttpRequest): The request object used to generate this response.
+
+    Template:
+        posts/resources.html
+
+    Returns:
+        HttpResponse: Renders the resources template with the list of resources and resource links.
+    """
     resources = Resource.objects.all()
     links = ResourceLink.objects.all()
     
@@ -209,6 +364,19 @@ def resources(request):
 )
 
 def contact_us(request):
+    """
+    Handles the contact form submissions. On POST, validates and saves the contact form data. 
+    Notifies the user of the form submission status and redirects to the contact page.
+
+    Parameters:
+        request (HttpRequest): The request object used to generate this response.
+
+    Template:
+        posts/contact.html
+
+    Returns:
+        HttpResponse: Redirects to the contact page after form submission or renders the contact form on GET.
+    """
     if request.method == 'POST':
         contact_form = ContactForm(data=request.POST)
         if contact_form.is_valid():

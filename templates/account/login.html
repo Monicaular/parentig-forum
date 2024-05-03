@@ -10,7 +10,7 @@
 <div class="form-container card p-4 shadow">
   <h1 class="sign-in-title">{% trans "Sign In" %}</h1>
   <div class="sign-in-form">
-    <p>{% blocktrans %}If you haven't got an account yet, please <a class="link" href="{{ login_url }}">sign up</a> here.{% endblocktrans %}</p>
+    <p>{% blocktrans %}If you haven't got an account yet, please <a class="link" href="{{ signup_url }}">sign up</a> here.{% endblocktrans %}</p>
     <form class="login" method="POST" action="{% url 'account_login' %}">
       {% csrf_token %}
       {{ form.as_p }}
@@ -18,9 +18,7 @@
       <input class="sign-in-fields" type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
       {% endif %}
       
-      <button class="sign-in-button class=" primaryAction" type="submit">{% trans "Sign In" %}</button>
-      <a class="button secondaryAction forgot-password"
-      href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+      <button class="sign-in-button" primaryAction" type="submit">{% trans "Sign In" %}</button>
       
     </form>
   </div>

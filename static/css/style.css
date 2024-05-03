@@ -1,3 +1,5 @@
+/*All pages generic styling*/
+
 body {
     font-family: "Work Sans", sans-serif;
     font-optical-sizing: auto;
@@ -21,8 +23,13 @@ a {
 /* Navbar*/
 
 .navbar-brand {
-    font-weight: 600;
+    font-weight: 700;
     color:#D5DCE6ff;
+    font-family: "Dancing Script", cursive;
+    background-color: #D87C3Cff;
+    padding: 10px;
+    box-shadow: 1px 2px 8px;
+    border-radius: 10px;
 }
 
 .navbar {
@@ -49,6 +56,7 @@ a {
 .navbar-toggler:hover {
     background-color: rgba(216, 124, 60, 1);
 }
+
 
 /* Home Page*/
 
@@ -87,10 +95,15 @@ a {
 }
 
 .hero-content {
-    background-color: rgba(99, 113, 162, 0.5);
+    background-color: rgba(222, 210, 227, 1);
     padding: 20px;
     box-shadow: 5px 10px #D87C3Cff;
     border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.feat-card-container {
+    margin-bottom: 30px;
 }
 
 .feat-card-box {
@@ -99,6 +112,7 @@ a {
     height: 100%;
     box-shadow: 4px 8px rgba(99, 65, 137, 1);
     transition: transform 0.2s;
+    margin-bottom: 20px;
 }
 
 .feat-card-box:hover {
@@ -110,8 +124,7 @@ a {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    padding: 15px;
-    
+    padding: 15px; 
 }
 
 .feat-card-img {
@@ -226,6 +239,10 @@ a {
     margin-top: 0.5rem;
 }
 
+.pagination {
+    margin: 10px;
+}
+
 /* Post detail page*/
 
 #div_id_photo,
@@ -258,13 +275,11 @@ a {
     object-fit: cover;
 }
 
-
 .card-title {
     background-color: rgba(99, 113, 162, 0.5);
     padding: 10px;
     border-radius: 10px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
-
 }
 
 .messages {
@@ -324,6 +339,7 @@ a {
     display: flex;
     justify-content: space-between;
 }
+
 #div_id_content, #div_id_photo {
     background-color: #ffffff;
     padding: 15px;
@@ -335,7 +351,6 @@ a {
 #div_id_content textarea, #div_id_photo input {
     width: 100%;
 }
-
 
 .form-label {
     display: block; 
@@ -679,39 +694,27 @@ input, textarea {
     color:#2c3e50;
 }
 
-.forgot-password {
-    color: #3498db;
-    text-decoration: underline;
-}
-
-.forgot-password:hover,
-#contact-link:hover {
-    color: #2c3e50;
-}
-
 .sign-out-text {
     padding: 15px;
     font-weight: 700;
 }
 
 .sign-in-button,
-#reset-password-btn,
 .sign-out-btn,
 .sign-up-button {
     background-color: #6371A2ff;
     color: white;
     border: none;
     border-radius: 5px;
-
+    padding: 10px;
 }
+
 .sign-in-button:hover,
-#reset-password-btn:hover,
 .sign-out-btn:hover,
 .sign-up-button:hover {
     background-color: #D87C3Cff;
 }
 
-.reset-password-form,
 .sign-out-form {
     text-align: center;
 }
@@ -723,6 +726,10 @@ input, textarea {
 #contact-link {
     color: #6371A2ff;
     text-decoration: underline;
+}
+
+#contact-link:hover {
+    color: #2c3e50;
 }
 
 .link {
@@ -819,8 +826,6 @@ input, textarea {
         flex: 1;
         padding-left: 20px;
     }
-
-    
 }
 
 
