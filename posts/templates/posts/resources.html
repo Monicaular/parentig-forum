@@ -8,26 +8,32 @@
     <h1>Resources</h1>
     <div class="resources-list">
         {% for resource in resources %}
-        <div class="resource-item">
-            <div class="resource-image">
-            {% if resource.image %}
-            <img src="{{ resource.image.url }}" alt="{{ resource.name }} Image">
-            {% endif %}
+        <div class="resources-box">
+            <div class="resource-item">
+                <div class="resource-image">
+                    {% if resource.image %}
+                    <img src="{{ resource.image.url }}" alt="{{ resource.name }} Image">
+                    {% endif %}
+                </div>
+                <div class="resource-content">
+                    <h2>{{ resource.name }}</h2>
+                    <p>{{ resource.description }}</p>
+                    <a class="download-btn" href="{{ resource.file.url }}">Download</a>
+                </div>
+            </div>
         </div>
-        <div class="resource-content">
-            <h2>{{ resource.name }}</h2>
-            <p>{{ resource.description }}</p>   
-            <a class="download-btn" href="{{ resource.file.url }}">Download</a>
-        </div>
-    </div>
         {% endfor %}
     </div>
     <h2>Useful Links</h2>
-    <ul>
-        {% for link in links %}
-        <li><a id="resource-link" href="{{ link.url }}" target="_blank">{{ link.name }}</a></li>
-        {% endfor %}
-    </ul>
+    <div class="useful-links-container">
+        <div class="useful-links-box">
+            <ul>
+                {% for link in links %}
+                <li><a id="resource-link" href="{{ link.url }}" target="_blank">{{ link.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 </div>
 
 {% endblock %}
