@@ -32,16 +32,19 @@ class PostsView(ListView):
             QuerySet: The filtered queryset based on age, category, and search query.
         """
         queryset = Post.objects.all().order_by("-created_at")
+        filtered = False
 
         # Filtering by age
         age = self.request.GET.get('age')
         if age:
             queryset = queryset.filter(age=age)
+            filtered=True
 
         # Filtering by category
         category = self.request.GET.get('category')
         if category:
             queryset = queryset.filter(categories=category)
+            filtered = True
 
         # Searching by keyword
         search_query = self.request.GET.get('search_query')
@@ -51,6 +54,16 @@ class PostsView(ListView):
                 Q(content__icontains=search_query) | 
                 Q(tags__icontains=search_query)
             )
+
+            filtered=True
+        
+        if not queryset.exists():
+            if search_query:
+                messages.info(self.request, 'No posts found matching your search criteria.')
+            elif filtered:
+                messages.info(self.request, 'No posts found matching your filter criteria.')
+            else:
+                messages.info(self.request, 'No posts available.')
 
         return queryset
 
@@ -354,7 +367,7 @@ def resources(request):
     """
     resources = Resource.objects.all()
     links = ResourceLink.objects.all()
-    
+
     return render(
     request,
     'posts/resources.html',

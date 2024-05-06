@@ -86,6 +86,14 @@
                     </div>
                     {% endfor %}
                 </div>
+                <!--Filter results section-->
+                {% if messages %}
+                <ul class="filter-result-message">
+                    {% for message in messages %}
+                        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
                 <!--Pagination-->
                 {% if is_paginated %}
                 <nav aria-label="Page navigation">

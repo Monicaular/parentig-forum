@@ -234,6 +234,18 @@ a {
     height:38px;
 }
 
+ul.filter-result-message {
+    padding: 10px;
+    margin-bottom: 20px;
+}
+ul.filter-result-message li {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 8px;
+    margin-bottom: 2px;
+    list-style: none;
+}
+
 .link-more {
     display: block; 
     margin-top: 0.5rem;
