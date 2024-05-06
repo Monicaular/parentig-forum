@@ -257,10 +257,6 @@ ul.filter-result-message li {
 
 /* Post detail page*/
 
-#div_id_photo,
-#id_photo {
-    display: none;
-}
 
 .custom-file-upload i {
     color: #3498db;
