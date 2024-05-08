@@ -104,14 +104,16 @@
                 <h5 class="modal-title" id="messageModalLabel">Notification</h5>
             </div>
             <div class="modal-body">
-                {% if messages %}
-                    {% for message in messages %}
-                        <p><i class="fa-solid fa-check" style="color:green"></i> {{ message }}</p>
-                    {% endfor %}
-                {% endif %}
+              {% if messages %}
+              {% for message in messages %}
+                  {% if 'filter' not in message.tags %}
+                      <p><i class="fa-solid fa-check" style="color: green;"></i> {{ message }}</p>
+                  {% endif %}
+              {% endfor %}
+              {% endif %}
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn cancel-btn" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
     </div>

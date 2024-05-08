@@ -47,8 +47,10 @@
                             <option value="Gentle Parenting">Gentle Parenting</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn submit-button">Apply Filters</button>
-                    <a href="{% url 'post_list' %}" class="btn cancel-btn">Clear Filters</a>
+                    
+                        <button type="submit" class="btn filter-btn">Apply Filters</button>
+                        <a href="{% url 'post_list' %}" class="btn clear-filter-btn">Clear Filters</a>
+                    
                 </form>
             </div>
         </div>
@@ -89,11 +91,16 @@
                 </div>
                 <!--Filter results section-->
                 {% if messages %}
-                <ul class="filter-result-message">
+                <div class="messages">
                     {% for message in messages %}
-                        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        {% if 'filter-message' in message.tags %}
+                            <!-- Inline message for filters -->
+                            <div class="alert alert-info {{ message.tags }}">
+                                {{ message }}
+                            </div>
+                        {% endif %}
                     {% endfor %}
-                </ul>
+                </div>
                 {% endif %}
                 <!--Pagination-->
                 {% if is_paginated %}

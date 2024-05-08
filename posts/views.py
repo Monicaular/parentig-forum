@@ -59,11 +59,11 @@ class PostsView(ListView):
         
         if not queryset.exists():
             if search_query:
-                messages.info(self.request, 'No posts found matching your search criteria.')
+                messages.info(self.request, 'No posts found matching your search criteria.', extra_tags='filter-message')
             elif filtered:
-                messages.info(self.request, 'No posts found matching your filter criteria.')
+                messages.info(self.request, 'No posts found matching your filter criteria.', extra_tags='filter-message')
             else:
-                messages.info(self.request, 'No posts available.')
+                messages.info(self.request, 'No posts available.', extra_tags='filter-message')
 
         return queryset
 
