@@ -234,6 +234,28 @@ a {
     height:38px;
 }
 
+.filter-btn {
+    background-color: rgba(99, 113, 162, 1);
+    color:aliceblue;
+    margin: 10px;
+}
+
+.filter-btn:hover {
+    background-color: rgba(49, 47, 60, 1);
+    color:aliceblue;
+}
+
+.clear-filter-btn {
+    background-color: rgba(99, 65, 137, 0.5);
+    color: white;
+    margin: 10px;
+}
+
+.clear-filter-btn:hover {
+    background-color: rgba(49, 47, 60, 1);
+    color: white;
+}
+
 ul.filter-result-message {
     padding: 10px;
     margin-bottom: 20px;
@@ -632,6 +654,7 @@ input, textarea {
 .cancel-btn {
     background-color: rgba(99, 65, 137, 0.5);
     color: white;
+    margin: 10px;
 }
 
 .cancel-btn:hover {
