@@ -252,3 +252,24 @@ The ERD for this forum represents the various entities and their relationships w
 A visual representaion of the ERD is presented below:
 ![Screenshot of the entity relationship diagram within the forum's database](/documentation/images/erd.png)
 
+## Features
+
+### Home Page:
+* Reassuring Quotes and Featured Posts
+    * The home page displays inspiring and reassuring quotes to uplift users.
+    * Featured posts are showcased on the home page to highlight important or popular content.
+
+![Screenshot illustrating the forum's home page](/documentation/images/home-page.png)
+
+### Navigation
+* Navigation menu:
+    * A navigation menu is present on all pages, allowing users to easily navigate between different sections of the website.
+    * The navbar features dropdown icons to ensure a clean and organized appearance.
+
+![Screenshot illustrating the forum's navigation bar with the menu icons](/documentation/images/navigation-bar-menu.png)
+
+### Authentication & Authorization
+* Create Account:
+    * Users can register for an account by providing necessary information such as username, email, and password.
+
+![Screenshot with the sign-up page]

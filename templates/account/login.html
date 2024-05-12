@@ -10,7 +10,7 @@
 <div class="form-container card p-4 shadow">
   <h1 class="sign-in-title">{% trans "Sign In" %}</h1>
   <div class="sign-in-form">
-    <p>{% blocktrans %}If you haven't got an account yet, please <a class="link" href="{{ signup_url }}">sign up</a> here.{% endblocktrans %}</p>
+    <p>{% blocktrans %}In order to be able to view and interact with the posts, you are require to login. If you haven't got an account yet, please <a class="link" href="{{ signup_url }}">sign up</a> here.{% endblocktrans %}</p>
     <form class="login" method="POST" action="{% url 'account_login' %}">
       {% csrf_token %}
       {{ form.as_p }}
