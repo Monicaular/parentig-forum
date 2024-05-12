@@ -20,6 +20,7 @@ From breastfeeding tips for new mothers to strategies for navigating the tumultu
     * [Typography](#typography)
     * [Colour Pallets](#colour-pallets)
     * [Entity Relationship Diagram](#erd)
+3. [Features](#features)
 
 
 
@@ -63,11 +64,11 @@ From breastfeeding tips for new mothers to strategies for navigating the tumultu
 
 **<span style="color: #6371A2ff;">User Story 18</span>**: As a **logged-in user** I can **reply to comments made by other users on posts** so that **I can engage in discussions and provide feedback.**
 
-## Wireframes
+### Wireframes
 
 Below are wireframe sketches illustrating the proposed layout and design of the forum's user interface. These wireframes serve as a visual guide to showcase the arrangement of key elements and functionality within the forum.
 
-### Homepage Wireframe
+#### Homepage Wireframe
 
 **Description**: This wireframe depicts the layout of the forum's homepage, including navigation menus, featured posts, and search functionality.
 
@@ -79,7 +80,7 @@ Below are wireframe sketches illustrating the proposed layout and design of the 
 ![Screenshot of mobile homepage wireframe](/documentation/images/mobile-homepage.png)
 </details>
 
-### Posts List Page
+#### Posts List Page
 
 **Description**: This wireframe illustrates the layout of the post list page, displaying a collection of posts organized by categories or filters.
 
@@ -91,7 +92,7 @@ Below are wireframe sketches illustrating the proposed layout and design of the 
 ![Screenshot of mobile posts list wireframe](/documentation/images/mobile-posts-list-page.png)
 </details>
 
-### Post Detail Page
+#### Post Detail Page
 
 **Description**: This wireframe illustrates the layout of a post detail page, showcasing the post content, comments section, and interaction options.
 
@@ -103,7 +104,7 @@ Below are wireframe sketches illustrating the proposed layout and design of the 
 ![Screenshot of mobile post detail wireframe](/documentation/images/mobile-post-detail-page.png)
 </details>
 
-### New Post Page
+#### New Post Page
 
 **Description**: This wireframe showcases the layout of the create post form, allowing users to compose new posts.
 
@@ -115,7 +116,7 @@ Below are wireframe sketches illustrating the proposed layout and design of the 
 ![Screenshot of mobile new post wireframe](/documentation/images/mobile-create-new-post.png)
 </details>
 
-### Edit Post Page
+#### Edit Post Page
 
 **Description**: This wireframe outlines the layout of the edit post form, allowing users to modify existing posts.
 
@@ -127,7 +128,7 @@ Below are wireframe sketches illustrating the proposed layout and design of the 
 ![Screenshot of mobile edit post wireframe](/documentation/images/mobile-edit-post.png)
 </details>
 
-### Edit Comment Page
+#### Edit Comment Page
 
 **Description**: This wireframe illustrates the layout of the edit comment form, enabling users to edit their previously submitted comments.
 
@@ -139,7 +140,7 @@ Below are wireframe sketches illustrating the proposed layout and design of the 
 ![Screenshot of mobile edit comment wireframe](/documentation/images/mobile-edit-comment.png)
 </details>
 
-### Rules Page
+#### Rules Page
 
 **Description**: This wireframe showcases the layout of the forum's rules page, providing guidelines and community standards.
 
@@ -151,7 +152,7 @@ Below are wireframe sketches illustrating the proposed layout and design of the 
 ![Screenshot of mobile rules wireframe](/documentation/images/mobile-rules-page.png)
 </details>
 
-### Resources Page
+#### Resources Page
 
 **Description**: This wireframe illustrates the layout of the forum's resources page, offering helpful information and links for users.
 
@@ -163,7 +164,7 @@ Below are wireframe sketches illustrating the proposed layout and design of the 
 ![Screenshot of mobile resources wireframe](/documentation/images/mobile-resources-page.png)
 </details>
 
-### Sign-Up Page
+#### Sign-Up Page
 
 **Description**: This wireframe showcases the layout of the sign-up page, allowing new users to register for a forum account.
 
@@ -175,7 +176,7 @@ Below are wireframe sketches illustrating the proposed layout and design of the 
 ![Screenshot of mobile sign-up wireframe](/documentation/images/mobile-sign-up.png)
 </details>
 
-### Sign-In Page
+#### Sign-In Page
 
 **Description**: This wireframe outlines the layout of the sign-in page, enabling registered users to log into their forum accounts.
 
@@ -187,7 +188,7 @@ Below are wireframe sketches illustrating the proposed layout and design of the 
 ![Screenshot of mobile sign-in wireframe](/documentation/images/mobile-sign-in.png)
 </details>
 
-### Sign-Out Page
+#### Sign-Out Page
 
 **Description**: Users can sign out of their forum accounts to securely log out and end their session.
 
@@ -198,4 +199,56 @@ Below are wireframe sketches illustrating the proposed layout and design of the 
 
 ![Screenshot of mobile sign-out wireframe](/documentation/images/mobile-sign-out.png)
 </details>
+
+### Agile Methodology
+
+#### Definition And Planning:
+* Commenced with the creation of a wireframe to visualize the website's layout.
+* Crafted user stories to define the functionality of the website.
+* Categorized user stories into priority groups: Must Have, Should Have, Could Have, and Won't Have.
+
+![Screenshot of the user stories](/documentation/images/user-stories.png)
+
+#### Iteration Creation:
+* Assigned points to each user story based on complexity to facilitate estimation.
+* Structured the project into five iterations, each representing distinct periods, typically spanning a few days.
+* During each iteration, the focus was on completing user stories selected for that phase.
+
+![Screenshot of the iterations](/documentation/images/iterations.png)
+
+#### Kanban Board Implementation
+* Employed a Kanban board to visually manage the workflow and track progress.
+* Allowed for the seamless movement of user stories across various stages, from 'To Do' to 'In Progress' and finally 'Done'.
+* This visual representation ensured transparency and clarity regarding the status of each task, fostering effective collaboration and informed decision-making throughout the project.
+
+![Screenshot of the Knaban Board](/documentation/images/kanban-board.png)
+
+#### Regular Reviews and Retrospectives:
+
+At the conclusion of each iteration, I conducted an assessment of completed tasks and facilitated a retrospective session to pinpoint areas for process enhancement.
+
+#### Reiteration:
+
+For subsequent iterations, I revisited newly acquired user stories, reassessing their priority and significance to sustain the project's advancement.
+
+This methodology enabled me to adeptly prioritize tasks and concentrate on pivotal objectives throughout each iteration, thus propelling the project forward according to predetermined objectives.
+
+### Colour Pallete
+
+For this website, I've selected specific colors to enhance different sections:
+
+* The navbar features a deep purple (#634188ff) for a touch of elegance.
+* Titles are in a paler purple (#DED2E3ff) to create a calm atmosphere.
+* The background adopts a soft pinkish-beige (#CCB9B5ff) for comfort and nostalgia.
+* Buttons are in a muted blue-grey (#6371A2ff) to convey reliability.
+* Lastly, the footer and hovered buttons sport a rich orange-brown (#D87C3Cff) to stand out and add vitality.
+
+![Screenshot of the website's colours pallete](/documentation/images/forum-pallete.png)
+
+### Entity Relationship Diagram
+
+The ERD for this forum represents the various entities and their relationships within the system. It illustrates how users, posts, comments, categories, and tags are interconnected. Users can create posts and comments, which are associated with specific categories and can be tagged with relevant keywords. Additionally, users can engage with posts by liking or commenting them. The ERD provides a clear visual representation of the data model underlying this forum, facilitating understanding and effective database design.
+
+A visual representaion of the ERD is presented below:
+![Screenshot of the entity relationship diagram within the forum's database](/documentation/images/erd.png)
 
