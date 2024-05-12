@@ -162,6 +162,7 @@ def create_post(request):
             post = form.save(commit=False)
             post.author = request.user
             post.save()
+            messages.success(request, 'Your post has been submitted successfully!')
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm()
@@ -195,7 +196,7 @@ def edit_post(request, pk):
         form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
             form.save()
-            messages.success(request, "Post updated successfully!")
+            messages.success(request, 'Your post has been updated successfully!')
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm(instance=post)
