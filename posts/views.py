@@ -220,6 +220,8 @@ def delete_post(request, pk):
 
     if request.method == 'POST':
         post.delete()
+        messages.success(request, 'Your post has been succesfully deleted!')
+
         return redirect('post_list')
     return redirect('post_detail', pk=pk)
 
