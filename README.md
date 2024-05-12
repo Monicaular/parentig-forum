@@ -265,11 +265,206 @@ A visual representaion of the ERD is presented below:
 * Navigation menu:
     * A navigation menu is present on all pages, allowing users to easily navigate between different sections of the website.
     * The navbar features dropdown icons to ensure a clean and organized appearance.
+    * The hamburger menu appears on mobile devices and expands to display the primary navigation links.
 
 ![Screenshot illustrating the forum's navigation bar with the menu icons](/documentation/images/navigation-bar-menu.png)
 
 ### Authentication & Authorization
 * Create Account:
     * Users can register for an account by providing necessary information such as username, email, and password.
+    * It includes a sign in link for the users that may have forgotten they already have an account.
 
-![Screenshot with the sign-up page]
+![Screenshot with the sign-up page](/documentation/images/sign-up-page-corrected.png)
+
+* Login Page:
+    * A login page is provided for users to securely log into their accounts using their credentials.
+    * A login requirement condition has been incorporated into the views, ensuring that users are redirected to this page when attempting to view post details.
+
+![Screenshot with the sign in page](/documentation/images/sign-in-page.png)
+
+* Log Out Page:
+    * Users can log out of their accounts with the option to cancel if they have pressed this option by mistake or changed their mind.
+
+![Screenshot with the log out page](/documentation/images/sign-out-page.png)
+
+### Search Bar
+* Search Functionality:
+    * A search bar is available on the posts list page, enabling users to search for specific posts by entering keywords.
+
+### Filters
+* Filter By Age And Category:
+    * Users can filter posts on the posts list page by age and category to find relevant content more efficiently.
+
+![Screenshot with the search bar and the filtering options](/documentation/images/search-and-filter-posts.png)
+
+### CRUD Functionality
+* Create, Read, Update, Delete Posts:
+    * Users can create new posts, providing a title, content, category and optionally selecting adding tags.
+    * Users can view their own posts along with the posts of other users.
+    * Users have the ability to edit their own posts, modifying the title, content, categories, and tags.
+    * Users can delete their own posts, removing them from public view and the database.
+
+<details>
+<summary>Create Post</summary>
+
+![Screenshot with create new post](/documentation/images/new-post-form.png)
+
+</details>
+
+<details>
+<summary>Read Post</summary>
+
+![Screenshot with accessing post detail](/documentation/images/post-detail-access.png)
+
+![Screenshot with post detail](/documentation/images/post-detail.png)
+</details>
+
+<details>
+
+<summary>Update Post</summary>
+
+![Screenshot with edit post form](/documentation/images/edit-post-form.png)
+</details>
+
+<details>
+
+<summary>Delete Post</summary>
+
+![Screenshot with delete post message](/documentation/images/delete-post.png)
+</details>
+
+* Create, Read, Update, Delete Comments:
+    * Users can create comments on posts, providing their feedback or thoughts.
+    * Users can view comments made by themselves and others on posts.
+    * Users have the ability to edit their own comments, modifying the content and the photo.
+    * Users can delete their own comments, removing them from public view and the database.
+
+<details>
+<summary>Create Comment</summary>
+
+![Screenshot with create new comment form](/documentation/images/new-comment-form.png)
+
+</details>
+
+<details>
+<summary>Read Comment</summary>
+
+![Screenshot with comments on a post](/documentation/images/comments.png)
+</details>
+
+<details>
+
+<summary>Update Comment</summary>
+
+![Screenshot with edit comment form](/documentation/images/edit-comment-form.png)
+</details>
+
+<details>
+
+<summary>Delete Comment</summary>
+
+![Screenshot with delete comment message](/documentation/images/delete-comment.png)
+</details>
+
+### Resources Page
+
+* Users can download files that admins upload on this page.
+![Alt Text](/documentation/images/download-resources.png)
+
+### Contact Page
+* Users can submit a contact form to the admins
+![Alt Text](/documentation/images/user-contact-page.png)
+
+
+### Admin Panel
+
+<details>
+
+<summary>Control Featured Posts:</summary>
+
+![Screenshot with admin panel](/documentation/images/is-featured-admin.png)
+</details>
+
+* Admins can select and manage featured posts, determining which posts are displayed prominently on the homepage.
+
+<details>
+
+<summary>Update Rules and Resources:</summary>
+
+![Screenshot with admin panel](/documentation/images/add-rules.png)
+
+![Screenshot with admin panel](/documentation/images/add-downloading-resource.png)
+
+![Screenshot with admin panel](/documentation/images/add-resource-link.png)
+</details>
+
+* Admins have the ability to update rules and resources, ensuring that users are informed of any policy changes or new resources available.
+
+<details>
+<summary>Delete, Add, Update Posts:</summary>
+
+![Screenshot with admin panel](/documentation/images/admin-delete-posts.png)
+
+![Screenshot with admin panel](/documentation/images/admin-add-post.png)
+
+![Screenshot with admin panel](/documentation/images/admin-edit-posts.png)
+</details>
+
+* Admins can delete, add, and update posts on the website, giving them control over the content displayed to users.
+
+<details>
+<summary>Manage Users:</summary>
+
+![Screenshot with admin panel](/documentation/images/admin-add-user.png)
+
+![Screenshot with admin panel](/documentation/images/admin-delete-users.png)
+
+![Screenshot with admin panel](/documentation/images/user-authorization.png)
+</details>
+
+* Admins can manage users, including adding new users, deleting existing users, and modifying user permissions.
+
+<details>
+
+<summary>Contact Requests Management:</summary>
+
+![Screenshot with admin panel](/documentation/images/contact-requests-read.png)
+![Screenshot with admin panel](/documentation/images/contact-requests-delete.png)
+</details>
+
+* Admins can manage contact requests by marking them as read or deleteing them.
+
+### Success Messages
+
+<details>
+
+<summary> Success message displayed upon adding, editing, or deleting posts/comments.</summary>
+
+![Alt text](/documentation/images/post-submitted.png)
+![Alt text](/documentation/images/post-updated.png)
+![Alt text](/documentation/images/post-deleted.png)
+![Alt text](/documentation/images/comment-submitted.png)
+![Alt text](/documentation/images/comment-updated.png)
+![Alt text](/documentation/images/comment-deleted.png)
+
+</details>
+
+<details>
+
+<summary> Confirmation message shown upon liking posts/comments.</summary>
+
+![Alt text](/documentation/images/post-like.png)
+![Alt text](/documentation/images/comment-like.png)
+![Alt text](/documentation/images/comment-unlike.png)
+
+</details>
+
+<details>
+
+<summary>Notification upon successful login/logout.</summary>
+
+![Alt text](/documentation/images/succesful-login.png)
+
+![Alt text](/documentation/images/succesfully-loggedout.png)
+
+</details>
