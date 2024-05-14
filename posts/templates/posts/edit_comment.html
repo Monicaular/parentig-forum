@@ -11,7 +11,7 @@
       <form method="post" enctype="multipart/form-data" class="edit-comment-form">
           {% csrf_token %}
           {{ form.as_p }}
-          <button type="submit" class="btn update-btn">Update</button>
+          <button type="submit" class="btn submit-btn">Update</button>
           <a href="{% url 'post_detail' pk=post.pk %}" class="btn cancel-btn">Cancel</a>
       </form>
     </div>

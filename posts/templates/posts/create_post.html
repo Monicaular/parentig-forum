@@ -9,7 +9,7 @@
         <form class="new-post-form" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
-            <button id="new-post-btn" type="submit">Create Post</button>
+            <button class="btn submit-btn" type="submit">Create Post</button>
         </form>
     </div>
 </div>

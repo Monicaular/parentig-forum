@@ -148,16 +148,6 @@ a {
     color: #D87C3Cff;
 }
 
-.read-more-btn {
-    background-color: rgba(99, 113, 162, 1);
-    color: white;
-}
-
-.read-more-btn:hover {
-    background-color: rgba(216, 124, 60, 1);
-    color: white;
-}
-
 /* Posts list page*/
 
 .posts-grid {
@@ -234,27 +224,6 @@ a {
     height:38px;
 }
 
-.filter-btn {
-    background-color: rgba(99, 113, 162, 1);
-    color:aliceblue;
-    margin: 10px;
-}
-
-.filter-btn:hover {
-    background-color: rgba(49, 47, 60, 1);
-    color:aliceblue;
-}
-
-.clear-filter-btn {
-    background-color: rgba(99, 65, 137, 0.5);
-    color: white;
-    margin: 10px;
-}
-
-.clear-filter-btn:hover {
-    background-color: rgba(49, 47, 60, 1);
-    color: white;
-}
 
 ul.filter-result-message {
     padding: 10px;
@@ -582,18 +551,30 @@ input, textarea {
     padding: 10px;
 }
 
-.download-btn {
-    background-color: rgba(99, 113, 162, 1);
-    color: white;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-.download-btn:hover {
-    background-color: #2c3e50;
-}
-
 /*Buttons styling*/
+
+.submit-btn {
+    background-color: rgba(99, 113, 162, 1);
+    color:aliceblue;
+}
+
+.submit-btn:hover {
+    background-color: rgba(49, 47, 60, 1);
+    color:aliceblue;
+}
+
+.cancel-btn {
+    background-color: rgba(99, 65, 137, 0.5);
+    color: white;
+    margin: 5px;
+    border: none;
+}
+
+.cancel-btn:hover {
+    background-color: rgba(49, 47, 60, 1);
+    color: white;
+    margin: 5px;
+}
 
 .user-icon {
     background-color: rgba(49, 47, 60, 1);
@@ -602,76 +583,21 @@ input, textarea {
     color: white;
 }
 
-#submitBtn {
-    background-color: rgba(99, 113, 162, 1);
-    color:aliceblue;
-    margin: 20px;
-}
 
-#submitBtn:hover {
-    background-color: rgba(49, 47, 60, 1);
-    color:aliceblue;
-}
-
-.edit-btn, 
-.edit-comm-btn {
+.edit-btn {
     background-color: #634189ff;
     color: white;
     border:rgba(49, 47, 60, 1);
 }
 
 .edit-btn:hover, 
-.delete-btn:hover, 
-.delete-comm-btn:hover, 
-.edit-comm-btn:hover {
+.delete-btn:hover {
     background-color: #D87C3Cff;
 }
 
-.delete-btn, 
-.delete-comm-btn {
+.delete-btn {
     background-color: #d0312d;
     color:white
-}
-
-.add-post {
-    background-color: rgba(99, 113, 162, 1);
-    border: none;
-    color:aliceblue;
-    margin-top: 20px;
-}
-
-.update-btn,
-.save-btn {
-    background-color: rgba(216, 124, 60, 1);
-    color: white;
-}
-
-.update-btn:hover,
-.save-btn:hover {
-    background-color: rgba(99, 113, 162, 1);
-}
-
-.cancel-btn {
-    background-color: rgba(99, 65, 137, 0.5);
-    color: white;
-    margin: 10px;
-}
-
-.cancel-btn:hover {
-    background-color: rgba(49, 47, 60, 1);
-    color: white;
-}
-
-
-.submit-button {
-    background-color: rgba(99, 113, 162, 1);
-    color:aliceblue;
-    margin: 20px;
-}
-
-.add-post:hover, .submit-button:hover {
-    background-color: rgba(49, 47, 60, 1);
-    color:aliceblue;
 }
 
 .like,
@@ -725,22 +651,6 @@ input, textarea {
 .sign-out-text {
     padding: 15px;
     font-weight: 700;
-}
-
-.sign-in-button,
-.sign-out-btn,
-.sign-up-button {
-    background-color: #6371A2ff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-}
-
-.sign-in-button:hover,
-.sign-out-btn:hover,
-.sign-up-button:hover {
-    background-color: #D87C3Cff;
 }
 
 .sign-out-form {

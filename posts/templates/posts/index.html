@@ -152,7 +152,7 @@
                                 {{ post.created_at|date:"Y-m-d" }}
                             </div>
                             <div class="mt-2">
-                                <a href="{% url 'post_detail' post.pk %}" class="btn read-more-btn btn-sm">Read More</a>
+                                <a href="{% url 'post_detail' post.pk %}" class="btn submit-btn btn-sm">Read More</a>
                                 <span class="badge like-count"><i class="fa fa-heart like"></i> {{ post.likes.count }}</span>
                                 <span class="badge comment-count"><i class="fa fa-comment"></i>
                                     {{ post.comments.count }}</span>
