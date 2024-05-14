@@ -517,3 +517,37 @@ Admins have access to a dedicated dashboard where they can review pending review
 * Include options for reporting individual comments or entire user profiles.
 * Admins can review reported content and take appropriate actions, such as removing comments or suspending user accounts.
 
+## Technologies Used
+
+### Core Development Technologies
+
+* Django (Python) for building the backend application.
+* JavaScript and Python (Django) for server-side logic.
+* HTML, CSS, JavaScript (ES6) for building the user interface.
+
+### Libraries, Frameworks and Packages
+
+* **[Crispy-Bootstrap5](https://django-crispy-forms.readthedocs.io/en/latest/)** and django-crispy-forms (Version 2.1) for integrating Bootstrap 5 with Django forms, providing easy-to-use, crispy forms with Bootstrap styling.
+* **[Django-Allauth](https://allauth.org/)** to provide a set of authentication and account management functionalities.
+
+
+### Python/Django Packages
+* **[Gunicorn](https://pypi.org/project/gunicorn/)**, a Python WSGI HTTP server for Unix, used to deploy the application in production environment.
+* **[Psycopg2](https://pypi.org/project/psycopg2/)**, a PostgreSQL adapter for Python, allows Django to interact with the PostgreSQL database.
+* **[Pillow](https://pypi.org/project/pillow/)**, a Python Imaging Library (PIL) fork, used for image processing in the application.
+* **[Whitenoise](https://pypi.org/project/whitenoise/)** used to serve static files efficiently in production.
+* **[Sqlparse](https://pypi.org/project/sqlparse/)** used for SQL query formatting and debugging.
+
+### Infrastructural Technologies
+
+* **[Git](https://git-scm.com/)** - A tool for version control, managing changes to source code files.
+* **[GitHub](https://github.com/)** - A platform where all website files are stored and organized within repositories.
+* **[Gitpod](https://gitpod.io/)** - An Integrated Development Environment (IDE) utilized for coding and editing project files.
+* **[Figma](https://www.figma.com/)** - A collaborative interface design tool utilized for designing and creating database models for the project.
+* **[Heroku](https://www.heroku.com/)** - A platform utilized for deploying and hosting the project.
+* **[ElephantSQL](https://www.elephantsql.com/)** - A managed PostgreSQL database service used for storing project data.
+* **[Cloudinary](https://cloudinary.com/)** for managing multimedia content in this Django application.
+
+## Testing
+
+### Google's Lighthouse Performance
