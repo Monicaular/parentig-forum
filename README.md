@@ -21,8 +21,17 @@ From breastfeeding tips for new mothers to strategies for navigating the tumultu
     * [Colour Pallets](#colour-pallets)
     * [Entity Relationship Diagram](#erd)
 3. [Features](#features)
-
-
+    * [Home Page](#home-page)
+    * [Navigation](#navigation)
+    * [Authentication & Authorization](#authentication-&-authorization)
+    * [Search Bar](#search-bar)
+    * [Filters](#filters)
+    * [CRUD Functionality](#crud)
+    * [Resources Page](#resources)
+    * [Contact Page](#contact)
+    * [Admin Panel](#admin-panel)
+    * [Success Messages](#success-messages)
+    * [Future Implementations](#future-implementations)
 
 ## Design & Planning
 
@@ -468,3 +477,43 @@ A visual representaion of the ERD is presented below:
 ![Alt text](/documentation/images/succesfully-loggedout.png)
 
 </details>
+
+### Future Implementations
+
+#### Admin Review and Pending Status:
+
+* Introduce a review process where all user-submitted reviews undergo evaluation by an admin.
+* Upon submission, reviews are marked with a "Pending Review" status.
+Admins have access to a dedicated dashboard where they can review pending reviews.
+* After review, admins can either approve or reject the review. If rejected, they can provide feedback to the user.
+* Users receive notifications about the status of their reviews, informing them whether it's approved or rejected.
+
+#### User Profile with Profile Photo:
+
+* Enhance user profiles to include personal details such as name, email, bio, and a profile photo.
+* Users can upload a profile photo from their device or select one from a predefined set of avatars.
+* Ensure the profile page is customizable, allowing users to manage their personal information easily.
+
+#### Video Uploading by Users:
+
+* Implement a feature enabling users to upload videos related to the platform's content.
+* Integrate video uploading functionality with the platform's existing infrastructure.
+* Apply appropriate file size and format restrictions, and provide feedback to users during the upload process.
+
+#### Reply to Comments with Infinite Replies:
+
+* Enable users to reply to comments on posts/videos, fostering interactive discussions.
+* Implement a nested commenting system that supports unlimited levels of replies.
+* Ensure clear visual indicators for nested replies to maintain readability.
+
+
+#### Tagging Usernames in Replies:
+
+* Allow users to tag other users by their usernames when replying to comments.
+* Implement autocomplete functionality to assist users in selecting the correct username.
+
+#### Reporting Comments and Users:
+* Introduce a reporting feature that allows users to flag inappropriate comments or user behavior.
+* Include options for reporting individual comments or entire user profiles.
+* Admins can review reported content and take appropriate actions, such as removing comments or suspending user accounts.
+
