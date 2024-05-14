@@ -23,7 +23,7 @@
                     <p id="post{{ post.id }}" class="card-text">{{ post.content }}</p>
                     {% endif %}
                     {% if post.photo %}
-                    <img src="{{ post.photo.url }}" class="card-img-top" alt="{{ post.title }}">
+                    <img src="{{ post.photo.url }}" class="card-img-top" alt="{{ post.title }}" loading="lazy"  width="200" height="200">
                     {% endif %}
                     <!--Post Interaction Area-->
                     {% if user.is_authenticated and user in post.likes.all %}
@@ -88,7 +88,7 @@
                         <p id="comment{{ comment.id }}" class="card-text">{{ comment.content }}</p>
                         {% endif %}
                         {% if comment.photo %}
-                        <img src="{{ comment.photo.url }}" class="card-img-bottom" alt="Comment Image">
+                        <img src="{{ comment.photo.url }}" class="card-img-bottom" alt="Comment Image" loading="lazy" width="200" height="200">
                         {% endif %}
                         {% if user.is_authenticated and user in comment.likes.all %}
                         <form id="unlike-comment-form" action="{% url 'like_comment' comment.id %}" method="post">
