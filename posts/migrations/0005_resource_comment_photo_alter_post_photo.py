@@ -7,27 +7,44 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('posts', '0004_alter_post_age_alter_post_categories'),
+        ("posts", "0004_alter_post_age_alter_post_categories"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Resource',
+            name="Resource",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100)),
-                ('file', cloudinary.models.CloudinaryField(max_length=255, verbose_name='file')),
-                ('description', models.TextField()),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100)),
+                (
+                    "file",
+                    cloudinary.models.CloudinaryField(
+                        max_length=255, verbose_name="file"
+                    ),
+                ),
+                ("description", models.TextField()),
             ],
         ),
         migrations.AddField(
-            model_name='comment',
-            name='photo',
-            field=cloudinary.models.CloudinaryField(default='placeholder', max_length=255, verbose_name='image'),
+            model_name="comment",
+            name="photo",
+            field=cloudinary.models.CloudinaryField(
+                default="placeholder", max_length=255, verbose_name="image"
+            ),
         ),
         migrations.AlterField(
-            model_name='post',
-            name='photo',
-            field=cloudinary.models.CloudinaryField(default='placeholder', max_length=255, verbose_name='image'),
+            model_name="post",
+            name="photo",
+            field=cloudinary.models.CloudinaryField(
+                default="placeholder", max_length=255, verbose_name="image"
+            ),
         ),
     ]

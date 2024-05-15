@@ -6,17 +6,17 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('posts', '0009_remove_resourcelink_resource'),
+        ("posts", "0009_remove_resourcelink_resource"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='post',
-            name='tags',
+            model_name="post",
+            name="tags",
         ),
         migrations.AddField(
-            model_name='post',
-            name='tags',
-            field=models.CharField(default='gentle parenting', max_length=200),
+            model_name="post",
+            name="tags",
+            field=models.CharField(default="gentle parenting", max_length=200),
         ),
     ]

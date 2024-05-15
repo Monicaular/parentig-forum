@@ -3,6 +3,7 @@ from .models import Post, ContactRequest, Comment
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit, Field, ButtonHolder
 
+
 class PostForm(forms.ModelForm):
     """
     A form for creating and updating Post instances.
@@ -14,9 +15,11 @@ class PostForm(forms.ModelForm):
         model: The model associated with the form, Post.
         fields (list): Specifies which fields should be included in the form, making other fields not accessible.
     """
+
     class Meta:
         model = Post
-        fields = ['title', 'content', 'photo', 'age', 'tags', 'categories']
+        fields = ["title", "content", "photo", "age", "tags", "categories"]
+
 
 class ContactForm(forms.ModelForm):
     """
@@ -28,9 +31,11 @@ class ContactForm(forms.ModelForm):
         model: The model associated with the form, ContactRequest.
         fields (tuple): Specifies the fields that are included in the form.
     """
+
     class Meta:
         model = ContactRequest
-        fields = ('name', 'email', 'message')
+        fields = ("name", "email", "message")
+
 
 class CommentForm(forms.ModelForm):
     """
@@ -44,11 +49,15 @@ class CommentForm(forms.ModelForm):
         fields (tuple): Specifies the fields to include in the form.
         widgets (dict): Defines specific widgets or properties for certain form fields.
     """
+
     class Meta:
         model = Comment
-        fields = ('content', 'photo', )
+        fields = (
+            "content",
+            "photo",
+        )
         widgets = {
-            'parent_comment': forms.HiddenInput(),
+            "parent_comment": forms.HiddenInput(),
         }
 
     def __init__(self, *args, **kwargs):
@@ -60,15 +69,16 @@ class CommentForm(forms.ModelForm):
             **kwargs: Arbitrary keyword arguments.
         """
         super().__init__(*args, **kwargs)
-        self.fields['content'].label = 'Comment'
-        self.fields['content'].widget.attrs.update({'class': 'form-control form-control-sm'}) 
-        self.fields['photo'].widget.attrs['accept'] = 'image/*' 
-        self.helper = FormHelper()
-        self.helper.form_method = 'post'
-        self.helper.layout = Layout(
-            Field('Content', placeholder='Write a comment...'),
-            ButtonHolder(
-                Submit('submit', 'Post', css_class='btn btn-primary mt-2 float-right')
-            )
+        self.fields["content"].label = "Comment"
+        self.fields["content"].widget.attrs.update(
+            {"class": "form-control form-control-sm"}
         )
-        
+        self.fields["photo"].widget.attrs["accept"] = "image/*"
+        self.helper = FormHelper()
+        self.helper.form_method = "post"
+        self.helper.layout = Layout(
+            Field("Content", placeholder="Write a comment..."),
+            ButtonHolder(
+                Submit("submit", "Post", css_class="btn btn-primary mt-2 float-right")
+            ),
+        )

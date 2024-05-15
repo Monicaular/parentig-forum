@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 const deleteCommentModal = new bootstrap.Modal(document.getElementById("deleteCommentModal"));
-const deleteCommentButtons = document.getElementsByClassName('delete-comm-btn');
 const confirmDeleteComm = document.getElementById('confirm-delete');
 
  document.addEventListener('click', function(event) {

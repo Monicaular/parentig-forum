@@ -6,12 +6,12 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('posts', '0008_remove_resource_link_url_resourcelink'),
+        ("posts", "0008_remove_resource_link_url_resourcelink"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='resourcelink',
-            name='resource',
+            model_name="resourcelink",
+            name="resource",
         ),
     ]

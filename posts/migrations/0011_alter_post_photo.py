@@ -7,13 +7,15 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('posts', '0010_remove_post_tags_post_tags'),
+        ("posts", "0010_remove_post_tags_post_tags"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='post',
-            name='photo',
-            field=cloudinary.models.CloudinaryField(blank=True, default='placeholder', max_length=255, verbose_name='image'),
+            model_name="post",
+            name="photo",
+            field=cloudinary.models.CloudinaryField(
+                blank=True, default="placeholder", max_length=255, verbose_name="image"
+            ),
         ),
     ]

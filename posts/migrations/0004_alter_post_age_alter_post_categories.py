@@ -6,18 +6,40 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('posts', '0003_alter_comment_options_alter_post_options_and_more'),
+        ("posts", "0003_alter_comment_options_alter_post_options_and_more"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='post',
-            name='age',
-            field=models.IntegerField(choices=[(0, '0-2 years'), (1, '2-4 years'), (2, 'Above 4 years'), (3, 'Teenagers')], default=0),
+            model_name="post",
+            name="age",
+            field=models.IntegerField(
+                choices=[
+                    (0, "0-2 years"),
+                    (1, "2-4 years"),
+                    (2, "Above 4 years"),
+                    (3, "Teenagers"),
+                ],
+                default=0,
+            ),
         ),
         migrations.AlterField(
-            model_name='post',
-            name='categories',
-            field=models.CharField(choices=[('Feeding & Nutrition', 'Feeding & Nutrition'), ('Health Concerns', 'Health Concerns'), ('Toys & Activities', 'Toys & Activities'), ('Breastfeeding', 'Breastfeeding'), ('Parental Separation', 'Parental Separation'), ('Home Organization', 'Home Organization'), ('Sleeping Patterns', 'Sleeping Patterns'), ('Behavioural Issues', 'Behavioural Issues'), ('Gentle Parenting', 'Gentle Parenting')], default='Feeding & Nutrition', max_length=100),
+            model_name="post",
+            name="categories",
+            field=models.CharField(
+                choices=[
+                    ("Feeding & Nutrition", "Feeding & Nutrition"),
+                    ("Health Concerns", "Health Concerns"),
+                    ("Toys & Activities", "Toys & Activities"),
+                    ("Breastfeeding", "Breastfeeding"),
+                    ("Parental Separation", "Parental Separation"),
+                    ("Home Organization", "Home Organization"),
+                    ("Sleeping Patterns", "Sleeping Patterns"),
+                    ("Behavioural Issues", "Behavioural Issues"),
+                    ("Gentle Parenting", "Gentle Parenting"),
+                ],
+                default="Feeding & Nutrition",
+                max_length=100,
+            ),
         ),
     ]

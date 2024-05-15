@@ -7,21 +7,34 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('posts', '0007_resource_link_url'),
+        ("posts", "0007_resource_link_url"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='resource',
-            name='link_url',
+            model_name="resource",
+            name="link_url",
         ),
         migrations.CreateModel(
-            name='ResourceLink',
+            name="ResourceLink",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100)),
-                ('url', models.URLField()),
-                ('resource', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='posts.resource')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100)),
+                ("url", models.URLField()),
+                (
+                    "resource",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="posts.resource"
+                    ),
+                ),
             ],
         ),
     ]
