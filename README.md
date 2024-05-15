@@ -33,6 +33,7 @@ From breastfeeding tips for new mothers to strategies for navigating the tumultu
     * [Success Messages](#success-messages)
     * [Future Implementations](#future-implementations)
 
+
 ## Design & Planning
 
 ### User Stories
@@ -551,3 +552,185 @@ Admins have access to a dedicated dashboard where they can review pending review
 ## Testing
 
 ### Google's Lighthouse Performance
+
+#### Home Page
+
+<details>
+
+<summary>Home Page</summary>
+
+![Alt text](/documentation/images/lighthouse-home-desktop.png)
+
+</details>
+
+<details>
+
+<summary>Mobile</summary>
+
+![Alt text](/documentation/images/lighthouse-home-mobile.png)
+
+</details>
+
+#### Posts Page
+
+<details>
+
+<summary>Desktop</summary>
+
+![Alt text](/documentation/images/lighthouse-posts-desktop.png)
+
+</details>
+
+<details>
+
+<summary>Mobile</summary>
+
+![Alt text](/documentation/images/lighthouse-posts-mobile.png)
+
+</details>
+
+#### Post Detail Page
+
+<details>
+
+<summary>Desktop</summary>
+
+![Alt text](/documentation/images/lighthouse-post-detail-desktop.png)
+
+</details>
+
+<details>
+
+<summary>Mobile</summary>
+
+![Alt text](/documentation/images/lighthouse-post-detail-mobile.png)
+
+</details>
+
+#### New Post Page
+
+<details>
+
+<summary>Desktop</summary>
+
+![Alt text](/documentation/images/lighthouse-add-post-desktop.png)
+
+</details>
+
+<details>
+
+<summary>Mobile</summary>
+
+![Alt text](/documentation/images/lighthouse-create-post-mobile.png)
+
+</details>
+
+#### Rules Page
+
+<details>
+
+<summary>Desktop</summary>
+
+![Alt text](/documentation/images/lighthouse-rules-desktop.png)
+
+</details>
+
+<details>
+
+<summary>Mobile</summary>
+
+![Alt text](/documentation/images/lighthouse-rules-mobile.png)
+
+</details>
+
+#### Resources Page
+
+<details>
+
+<summary>Desktop</summary>
+
+![Alt text](/documentation/images/lighthouse-resources-desktop.png)
+
+</details>
+
+<details>
+
+<summary>Mobile</summary>
+
+![Alt text](/documentation/images/lighthouse-resources-mobile.png)
+
+</details>
+
+## Browser Compatibility
+
+### Responsiveness
+
+Utilizing Google Dev Tools during development and subsequently verifying with the Responsivity app, it has been confirmed that the forum website demonstrates commendable responsiveness across a range of devices, encompassing mobile phones, tablets, laptops, and desktop computers.
+
+![Screenshot of the forum posts page on iPhone 12 Pro](/documentation/images/iphone-12-pro-390x844.jpeg)
+![Screenshot of the forum posts page on iPad Pro](/documentation/images/ipad-768x1024.jpeg)
+![Screenshot of the forum posts page on McBook Pro](/documentation/images/mcbook-pro-1440x900.jpeg)
+
+| Device | iPhone SE | iPhone X | iPhone 12 Pro | iPhone 13 Pro Max | iPhone 14 Pro Max | iPad | iPad Air | iPad Pro | Macbook Pro |
+| ---------| ----------- | ------| -------| ----------| ---------- | ------------ | ---------- | ------------- | ------------ |
+| **Resolution** | **375x667** | **375x812** | **390x844** | **414x76** | **414x896** | **768x1024** | **820x1180** | **1024x1366** | **1440x900** |
+| **Render** | Pass | Pass | Pass | Pass | Pass | Pass | Pass | Pass | Pass |
+| **Layout** | Pass | Pass | Pass | Pass | Pass | Pass | Pass | Pass | Pass |
+| **Functionality** | Pass | Pass | Pass | Pass | Pass | Pass | Pass | Pass | Pass|
+| **Links** | Pass | Pass | Pass | Pass | Pass | Pass | Pass | Pass | Pass |
+| **Images** | Pass | Pass | Pass | Pass | Pass | Pass | Pass | Pass | Pass |
+| **Portrait/Landscape** | Pass | Pass | Pass | Pass | Pass | Pass | Pass | Pass | Pass |
+
+### Code Validation
+
+Every HTML page underwent examination with the [W3C Markup Validation Service](https://validator.w3.org/), revealing no significant errors.
+
+#### Home Page
+
+![Home Page html validation results](/documentation/images/home-html.png)
+
+#### Posts Page
+
+![Posts Page html validation results](/documentation/images/post-list-html.png)
+
+#### Posts Page
+
+![Posts Page html validation results](/documentation/images/post-list-html.png)
+
+#### Add Post Page
+
+![Add Post Page html validation results](/documentation/images/add-post-html.png)
+
+#### Edit Post Page
+
+![Edit Post Page html validation results](/documentation/images/edit-post-html.png)
+
+#### Rules Page
+
+![Rules Page html validation results](/documentation/images/rules-html.png)
+
+#### Resources Page
+
+![Resources Page html validation results](/documentation/images/resources-html.png)
+
+#### CSS
+
+The CSS page was checked using the [W3C Markup Validation Service](https://validator.w3.org/), and no errors were found.
+
+![Styling file validation results](/documentation/images/style-css.png)
+
+
+### JavaScript
+
+Both JavaScript files successfully passed through [JSHint](https://jshint.com/) without encountering any errors.
+
+![Messages js validation results](/documentation/images/messages-js.png)
+
+![Script js validation results](/documentation/images/script-js.png)
+
+### Python
+
+All custom Python code files were formatted according to the PEP8 standards using the [Black](https://pypi.org/project/black/) formatter.
+
+## Manual Testing
+
