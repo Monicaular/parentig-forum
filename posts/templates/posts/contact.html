@@ -7,16 +7,6 @@
 <!--Admin contact form-->
 <div class="row justify-content-center">
     <div class="col-12 col-md-6 my-5">
-    <!-- Message Display -->
-    {% if messages %}
-    <div class="messages">
-        {% for message in messages %}
-            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-                {{ message }}
-            </div>
-        {% endfor %}
-    </div>
-    {% endif %}
         <h5>Contact Us</h5>
         <p>If you have any suggestions for improving our content or if any users have been disrespectful or violated
             group rules, please don't hesitate to reach out to us. We take these matters seriously and will address them
@@ -30,6 +20,7 @@
         </form>
 
     </div>
+</div>
 </div>
 
 {% endblock content %}
