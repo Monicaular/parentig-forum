@@ -1,14 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
 {% block title %}Oops! Server Meltdown{% endblock %}
 
 {% block content %}
 <div class="container d-flex justify-content-center align-items-center">
-    <div class=" form-container card p-4 shadow">
+    <div class="form-container card p-4 shadow">
         <h1>Oops! Server Meltdown</h1>
         <p>Looks like our servers are having a meltdown. Parenthood can be overwhelming, even for machines!</p>
-            <img src="{% static 'images/500-error.webp' %}" class="card-img-top img-fluid" alt="Server Meltdown Image">
-            <p style="margin-top: 20px;">
-                <a type="button" class="btn submit-btn" href="{% url 'home' %}">Return to the Parenting Headquarters</a>
-            </p>
+        <img src="{% static 'images/500-error.webp' %}" class="card-img-top img-fluid" alt="Server Meltdown Image">
+        <p style="margin-top: 20px;">
+            <a type="button" class="btn submit-btn" href="{% url 'home' %}">Return to the Parenting Headquarters</a>
+        </p>
         <p>We're working hard to fix this issue. Thanks for your patience!</p>
     </div>
 </div>
