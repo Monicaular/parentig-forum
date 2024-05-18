@@ -2,7 +2,7 @@
 
 ## Introduction <a name="introduction"></a>
 
-Navigating Parenthood Together is a vibrant online community tailored for parents navigating the diverse challenges of raising children of varying ages. Whether you're facing the trials of toddlerhood or grappling with the complexities of teenage years, this forum offers a supportive space where parents can seek guidance, share experiences, and find solace in knowing they're not alone on this journey.
+Journeying Through Parenthood is a vibrant online community tailored for parents navigating the diverse challenges of raising children of varying ages. Whether you're facing the trials of toddlerhood or grappling with the complexities of teenage years, this forum offers a supportive space where parents can seek guidance, share experiences, and find solace in knowing they're not alone on this journey.
 
 From breastfeeding tips for new mothers to strategies for navigating the tumultuous waters of adolescence, this platform covers a spectrum of topics aimed at easing the burdens of parenthood. Whether they are seeking advice on nutrition, managing health concerns, practicing gentle parenting techniques, or simply looking for camaraderie amidst the trials of raising children, Journeying Through Parenthood is here to provide a compassionate ear and a wealth of collective wisdom to help make their parenting journey a little smoother.
 
@@ -32,7 +32,17 @@ From breastfeeding tips for new mothers to strategies for navigating the tumultu
     * [Admin Panel](#admin-panel)
     * [Success Messages](#success-messages)
     * [Future Implementations](#future-implementations)
-
+4. [Technologies Used](#technologies-used)
+    * [Core Development Technologies](#core-development-technologies)
+    * [Libraries, Frameworks and Packages](#libraries-frameworks-packages)
+    * [Python/Django Packages](#python-django-packages)
+    * [Infrastructural Technologies](#infrastructural-technologies)
+5. [Testing](#testing)
+    * [Google Lighthouse Performance](#lighthouse)
+    * [Browser Compatibility](#browser-compatibility)
+    * [Responsiveness](#responsiveness)
+    * [Code Validation](#code-validation)
+    * [Manual Testing](#manual-testing)
 
 ## Design & Planning
 
@@ -733,4 +743,100 @@ Both JavaScript files successfully passed through [JSHint](https://jshint.com/) 
 All custom Python code files were formatted according to the PEP8 standards using the [Black](https://pypi.org/project/black/) formatter.
 
 ## Manual Testing
+
+### Notifications and feedback testing for submitting a post
+| Action | Notifications and feedback for posting | Result |
+| ------- | ------- | ---------|
+| Add a post | Your post has been submitted succesfully! | Pass |
+| Edit post | You post has been updated succesfully | Pass |
+| Delete post | Your post has been succesfully deleted! | Pass |
+| Cancel delete post | Returns to the post detail | Pass |
+
+### Notifications and feedback testing for comments
+
+| Action | Notifications and feedback for commenting | Result |
+| ------- | ------- | ---------|
+| Add a comment |  Your comment has been posted successfully! | Pass |
+| Edit a comment | Comment updated successfully! | Pass |
+| Delete a comment | Comment deleted successfully! | Pass |
+| Cancel delete comment | Returns to the post detail | Pass |
+
+### Notifications and feedback testing for contact form
+
+| Action | Notifications and feedback for contact request | Result |
+| ------- | ------- | ---------|
+| Submit contact form with details |  Your contact request has been submitted successfully! | Pass |
+
+### Notifications and feedback testing for sign up, sign in and sign out
+
+| Action | Notifications and feedback for contact request | Result |
+| ------- | ------- | ---------|
+| Sign Up |  You have successfully logged in. | Pass |
+| Sign In | You have successfully logged in. | Pass |
+| Sign Out |  You have successfully logged out. | Pass |
+
+### Notifications and feedback testing for the admin panel
+
+| Action | Notifications and feedback for action | Result |
+| ------- | ------- | ---------|
+| Contact form submitted | Message displayed in the contact requests section | Pass |
+| <details><summary>Contact form marked as read</summary> ![Alt text](/documentation/images/mark-as-read-1.png)</details> | <details><summary>Read column changes from red "x" to green tick</summary> ![Alt text](/documentation/images/mark-as-read-2.png)</details> | Pass |
+| <details><summary>Delete a post or more</summary> ![Alt text](/documentation/images/delete-a-post.png)</details>| <details><summary>Successfully deleted {number} post(s).</summary> ![Alt text](/documentation/images/succesfully-deleted-post.png)</details> | Pass |
+| <details><summary>Delete a comment or more </summary> ![Alt text](/documentation/images/delete-a-comment.png)</details>|<details><summary> Successfully deleted {number} comment(1). </summary> ![Alt text](/documentation/images/successfully-deleted-comment.png)</details> | Pass |
+|<details><summary> Mark a post as featured  </summary> ![Alt text](/documentation/images/featured-posts.png)</details>| <details><summary>Tick the 'is featured' column  </summary> ![Alt text](/documentation/images/mark-as-featured.png)</details>| Pass |
+| <details><summary>Ad a new rule </summary> ![Alt text](/documentation/images/add-a-new-rule.png)</details>| <details><summary>Submit rule</summary> ![Alt text](/documentation/images/submit-a-new-rule.png)</details> | Pass |
+| <details><summary>Add a downloading resource </summary> ![Alt text](/documentation/images/add-new-resources.png)</details> | <details><summary>Submit resource </summary> ![Alt text](/documentation/images/submit-new-resource.png)</details> | Pass |
+
+### Testing all links and buttons on website
+
+| Link/Button | Purpose | Result |
+| ------- | ------- | ---------|
+| Navbar Brand | Returns to Home Page | Pass |
+| Navbar Home Link | Returns to Home Page | Pass |
+| Navbar Posts Link | Takes user to the posts list | Pass |
+| Navbar About/Rules Link | Takes user to rules page | Pass |
+| Navbar About/Resources Link | Takes user to the resources page | Pass |
+| Navbar user icon link | Shows and takes user to sign in/sign up page when not registered | Pass |
+| Navbar user name link | Takes user to the sign out page when logged in | Pass |
+| "here" link in introduction | Takes user to add post page if logged in | Pass |
+| "here" link in introduction | Takes user to sign in page if not registered | Pass |
+| Clickable featured post title | Takes user to the post detail page if logged in | Pass |
+| Clickable featured post title | Takes user to the sign in page if logged out | Pass |
+| Read More Button in featured posts | Takes user to the post detail page if logged in | Pass |
+| Read More Button in featured posts | Takes user to the sign in page if logged out | Pass |
+| Footer Contact Us | Takes the user to the contact form page | Pass |
+| Contact form submit button | Submits the request form to admin | Pass |
+| Add Post button on posts page | Opens a new post form | Pass |
+| Create post button on new post page | Submits a new post | Pass |
+| Choose file button on new post page | Opens a window to choose a photo from user's computer | Pass |
+| Search button on posts page | Brings up posts that contain the word(s) inserted by the user | Pass |
+| Apply Filter button on posts page | Brings up posts that apply to the filter(s) chosen by the user | Pass |
+| Clear Filter button on posts page | Brings up the whole posts list | Pass |
+| Clickable post title | Takes user to the post detail page if logged in | Pass |
+| Clickable post title | Takes user to the sign in page if logged out | Pass |
+| Read More Button in posts content | Takes user to the post detail page if logged in | Pass |
+| Read More Button in posts content | Takes user to the sign in page if logged out | Pass |
+| Submit button on post detail page | Submits a new comment | Pass |
+| Choose file button on post detail page | Opens a window to choose a photo from user's computer | Pass |
+| Edit button on post detail | Opens the post in an editable format | Pass |
+| Save Changes button on edit post page | Saves the updated post | Pass |
+| Cancel button on edit post page | Returns the user to the post detail page | Pass |
+| Delete button on post detail | Opens a window for the user to confirm deletion | Pass |
+| Delete button on the delete modal | Removes the post and returns the user to the posts list | Pass |
+| Cancel button on delete modal | Returns the user to the post detail page | Pass |
+| Heart shaped button on the post detail | Counts the number of likes (clicks) a post has | Pass |
+| Edit button on comment | Opens the comment in an editable format | Pass |
+| Update button on edit comment page | Saves the updated comment | Pass |
+| Cancel button on edit comment page | Returns the user to the post detail page | Pass |
+| Delete button on comment| Opens a window for the user to confirm deletion | Pass |
+| Delete button on the delete modal | Removes the comment and returns the user to the posts list | Pass |
+| Cancel button on delete modal | Returns the user to the post detail page | Pass |
+| Heart shaped button on the comment | Counts the number of likes (clicks) a comment has | Pass |
+| Next button on posts list | Takes the user to the next page of posts | Pass |
+| Number buttons between Next and Prev | Takes the user to that page number of posts | Pass |
+| Prev button on posts page | Takes the user to the previous page of posts | Pass |
+| Sign Out button | Logs out user and takes them to the home page | Pass |
+| Cancel button on the sign out page | Return the user to the previous page | Pass |
+| Sign In button | Logs the user in and takes him to the home page if selected from the navbar or to the post detail if redirected to it | Pass |
+| Sign Up button | Takes the user to the register form, logs them in and direct them to the home page | Pass |
 

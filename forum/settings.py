@@ -21,7 +21,7 @@ DEBUG = "DEBUG" in os.environ
 
 ALLOWED_HOSTS = [
     "8000-monicaular-parentigforu-fxdh8yory1r.ws-eu111.gitpod.io",
-    ".herokuapp.com",
+    ".herokuapp.com", '8000-monicaular-parentigforu-fxdh8yory1r.ws-eu114.gitpod.io',
 ]
 
 
