@@ -43,6 +43,9 @@ From breastfeeding tips for new mothers to strategies for navigating the tumultu
     * [Responsiveness](#responsiveness)
     * [Code Validation](#code-validation)
     * [Manual Testing](#manual-testing)
+6. [Bugs](#bugs)
+7. [Deployment](#deployment)
+8. [Credits](#credits)
 
 ## Design & Planning
 
