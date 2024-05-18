@@ -905,4 +905,15 @@ Next, open Git Bash and change the current working directory to where you want t
 
 *It's important to note that the difference between cloning and forking is that you need permissions to push back to the original from a clone, but not from a fork because a fork will be completely your own new project.*
 
+## Credits
 
+The code was entirely written by the developer.
+
+I would like to thank:
+
+- Code Institute for providing the learnign resources and the walkthrough project: "My First Django Blog".
+- Code Institute tutors for helping me with the bugs that I couldn't figure out on my own.
+- My mentor Mitko Bacharov for the tips and taking the time to answer my questions on Slack.
+- [W3Schools](https://www.w3schools.com/) for finding quick information for styling.
+
+The images for the site were taken from the [Pexels](https://www.pexels.com/) website and the topics from a facebook group. 
