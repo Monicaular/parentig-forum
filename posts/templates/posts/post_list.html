@@ -62,7 +62,8 @@
                 {% for post in post_list %}
                 <div class="post-item">
                     <div class="post-text">
-                            <h5 class="post-title"><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h5>
+                        <a href="{% url 'post_detail' post.pk %}" class="post-link">
+                            <h5 class="post-title">{{ post.title }}</h5> 
                             <p class="mb-2 post-author"> <i class="fa-solid fa-user user-icon"></i>
                                 {{ post.author }} | {{ post.created_at }}</p>
                             {% if post.content|wordcount > 60 %}
