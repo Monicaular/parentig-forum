@@ -26,6 +26,8 @@ From breastfeeding tips for new mothers to strategies for navigating the tumultu
     * [Authentication & Authorization](#authentication-&-authorization)
     * [Search Bar](#search-bar)
     * [Filters](#filters)
+    * [404 Custom Page](#404-custom-page)
+    * [500 Error Custom Page](#500-error-custom-page)
     * [CRUD Functionality](#crud)
     * [Resources Page](#resources)
     * [Contact Page](#contact)
@@ -319,6 +321,19 @@ A visual representaion of the ERD is presented below:
     * Users can filter posts on the posts list page by age and category to find relevant content more efficiently.
 
 ![Screenshot with the search bar and the filtering options](/documentation/images/search-and-filter-posts.png)
+
+### 404 Custom Page
+
+A custom 404 page serves as a user-friendly feature that enhances website usability by providing personalized error messages and helpful navigation options when users encounter a "Page Not Found" error.
+
+![Screenshot of the 404 custom page](/documentation/images/404-screenshot.png)
+
+### 500 Error Custom Page
+
+A custom 500 error page acts as a crucial feature for website reliability, offering a user-friendly interface to inform users about internal server errors and providing reassurance while troubleshooting occurs.
+
+![Screenshot of the 404 custom page](/documentation/images/500-screenshot.png)
+
 
 ### CRUD Functionality
 * Create, Read, Update, Delete Posts:
