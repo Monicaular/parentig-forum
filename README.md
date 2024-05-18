@@ -863,3 +863,46 @@ To allow users to edit a comment, I used a prefilled form that appeared in the n
 
 ![Edit comment form](/documentation/images/edit-comment-form.png)
 
+## Deployment
+This website has been deployed to Heroku from a GitHub Repository. The following steps are necessary in order to do this:
+
+#### Creating Repository on GitHub
+1. Login to [Github](https://github.com/) and chose the Code Institute [GitPod](https://github.com/Code-Institute-Org/gitpod-full-template). template.
+2. Select **use this template** and then **Create a new repository** from the drop-down. Chose the name of the repository and click **Create repository from template**.
+3. Once the repository is created, click on the green **gitpod** button to create a workspace in gitpod so that it opens and it's ready to input the code.
+
+#### Creating an app on Heroku
+4. After creating the repository on GitHub, go to [heroku](https://www.heroku.com/) and sign in or register. 
+5. On the home page, click **New** and select **Create new app** from the drop-down menu.
+6. Provide a unique name for the app, choose a region (I chose **Europe** since I am in Europe), and then click **Create app.**
+
+#### Create a database On ElephantSQL
+7. Log into the [ElephantSQL](https://www.elephantsql.com/) website and click on **Create new Instance**.
+8. Enter a **name** and keep the plan as **Tiny Turtle Free**. You can leave the tags field blank. Select the region closest to you. For example, if you're in Ireland, select **EU-West-1 (Ireland)**. Then click **Review** and after that click **Create an instance**.
+9. On the Dashboard, click on your database instance name.
+10. In the URL section, click on the copy icon to copy the database URL.
+11. Go to gitpod and create a **Database URL** environment variable in your env.py file and set it equal to the copied URL.
+
+#### Deploying to Heroku
+12. Head back over to [Heroku](URL_1) and click on your **app**. Then, go to the **Settings tab**.
+13. On the **settings page**, scroll down to the **config vars** section and enter the following:
+  - Set **DATABASE_URL** equal to the elephantSQL URL
+  - Create a **Secret key** (this can be generated online or anything else)
+  - Set **CLOUDINARY_URL** to your Cloudinary URL
+  - Set **Port** to **8000**
+14. Scroll to the top and go to the **deploy tab**. In the **Deployment method** section, select **Github** and sign into your account in order to link it.
+15. In the **search for a repository to connect to search box**, enter the name of your GitHub repository and click **connect**.
+16 Once it has been connected, scroll down to the **Manual Deploy** section and click **Deploy branch**. After it has been deployed, you will see a **view app** button below, which will take you to your newly deployed app.
+17. Please note that when deploying manually, you will have to deploy after each change you make to your repository. If you don't want to do this, you can activate the automtic deployment.
+
+### Fork This Repository
+To fork this repository, simply visit the GitHub repository and click on the Fork button located in the upper right-hand corner. 
+
+### Clone This Repository
+To clone this repository, go to the GitHub repository and click on the Code button near the top of the page. From there, select either 'HTTPS', 'SSH', or 'Github CLI' depending on your preference for cloning. Then, click the copy button to copy the URL to your clipboard. 
+
+Next, open Git Bash and change the current working directory to where you want the cloned directory to be located. Type "git clone" followed by pasting the URL, then press enter to create your local clone. 
+
+*It's important to note that the difference between cloning and forking is that you need permissions to push back to the original from a clone, but not from a fork because a fork will be completely your own new project.*
+
+
