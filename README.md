@@ -916,7 +916,7 @@ I would like to thank:
 
 - Code Institute for providing the learnign resources and the walkthrough project: "My First Django Blog".
 - Code Institute tutors for helping me with the bugs that I couldn't figure out on my own.
-- My mentor Mitko Bacharov for the tips and taking the time to answer my questions on Slack.
+- My mentor Mitko Bachvarov for the tips and taking the time to answer my questions on Slack.
 - [W3Schools](https://www.w3schools.com/) for finding quick information for styling.
 
 The images for the site were taken from the [Pexels](https://www.pexels.com/) website and the topics from a facebook group. 

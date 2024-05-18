@@ -532,11 +532,11 @@ input, textarea {
     flex: 1;
 }
 
-#resource-link {
+.resource-link {
     text-decoration: underline;
 }
 
-#resource-link:hover {
+.resource-link:hover {
     color: #3498db;
 }
 
