@@ -840,3 +840,26 @@ All custom Python code files were formatted according to the PEP8 standards usin
 | Sign In button | Logs the user in and takes him to the home page if selected from the navbar or to the post detail if redirected to it | Pass |
 | Sign Up button | Takes the user to the register form, logs them in and direct them to the home page | Pass |
 
+## Bugs
+
+| Bug | Fix
+|:-------:|:--------|
+| After standardizing the style of all the buttons, I changed the class of the delete comment button, causing it to stop working when clicked. | Upon reviewing the JavaScript file, I realized that I had removed the class targeted by the event listener and corrected it. 
+
+| Bug | Fix
+|:-------:|:--------|
+Success messages were not appearing on the right side of the page and were not visible to the user. | After extensive research without finding a solution, I decided to use a modal for better visibility.
+
+![Example of the sussces message](/documentation/images/comment-updated.png)
+
+| Bug | Fix
+|:-------:|:--------|
+After introducing the modal for messages, I have noticed that they showed twice when there were no search results and when submitting a contact form. | I fixed this by removing the html code that was displaying them initially.
+
+
+| Bug | Fix
+|:-------:|:--------|
+To allow users to edit a comment, I used a prefilled form that appeared in the new comment section. However, the page didn't scroll to the form automatically, making it seem like the edit button wasn't working because the form wasn't immediately visible to the user. | I decided to create a new html file for editing the comment, similar to editing the post.
+
+![Edit comment form](/documentation/images/edit-comment-form.png)
+
