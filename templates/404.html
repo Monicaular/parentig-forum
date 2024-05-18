@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}Page Not Found{% endblock %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center">
+    <div class="form-container p-4 shadow">
+    <h1>Oops! Lost in Parenting Land.</h1>
+    <p>Looks like you've wandered off the path. Parenthood is a maze, and even the best parents get lost sometimes!</p>
+    <img src="{% static 'images/404.webp' %}" alt="404 baby" class="card-img-top img-fluid">
+    <p style="margin-top: 20px;">
+        <a type="button" class="btn submit-btn" href="{% url 'home' %}">Return to the Parenting Headquarters</a>
+    </p>
+    <p style="font-style: italic;">Remember, parenting is an adventure, and every wrong turn is just a chance to learn something new!</p>
+</div>
+</div>
+{% endblock %}
