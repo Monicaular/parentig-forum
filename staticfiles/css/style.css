@@ -350,6 +350,7 @@ ul.filter-result-message li {
     background-color: rgba(99, 113, 162, 0.3);
     margin-left: auto;
     margin-right: auto;
+    
 }
 
 label {
@@ -364,27 +365,22 @@ input, textarea {
     box-sizing: border-box;
 }
 
-#new-post-btn {
-    background-color: #6371A2ff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    display: block;
+textarea {
     width: 100%;
-    margin-top: 20px;
 }
 
-#new-post-btn:hover {
-    background-color: #D87C3Cff;
+.new-post-form label {
+    flex: 0 0 auto;
+    margin-right: 0;
 }
+
 
 .new-post-form label {
     flex: 0 0 100px;
     margin-right: 10px;
     
 }
+
 
 .new-post-title {
     padding: 10px;
@@ -518,7 +514,8 @@ input, textarea {
 
 .resource-item {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
     margin-bottom: 20px;
 }
 
@@ -528,9 +525,15 @@ input, textarea {
     margin-bottom: 10px;
 }
 
+.resource-image {
+    flex: 0 0 50%;
+}
+
 .resource-content {
     flex: 1;
+    padding-left: 20px;
 }
+
 
 .resource-link {
     text-decoration: underline;
@@ -613,22 +616,19 @@ input, textarea {
     color: #634189ff;
 }
 
-.comment-count a {
+/* .comment-count a {
     color: #634189ff;
-}
+} */
 
 /*Authentification pages*/
 
 .form-container {
-
     max-width: 600px;
-    margin: auto;
+    margin: 40px auto;
     padding: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); 
     background-color: #fff;
     border-radius: 8px;
-    margin-top: 40px;
-    margin-bottom: 40px;
 }
 
 .sign-in-form,
@@ -746,23 +746,17 @@ input, textarea {
     .rules-container {
         margin-top: 30px;
     }
-}
 
+    .form-container {
+        margin: 20px auto;
+        padding: 15px;
+        width: 90%; 
+    }
 
-@media (min-width: 400px) { 
     .resource-item {
-        flex-direction: row;
-        align-items: center;
+        flex-direction: column;
     }
 
-    .resource-image {
-        flex: 0 0 50%;
-    }
-
-    .resource-content {
-        flex: 1;
-        padding-left: 20px;
-    }
 }
 
 
