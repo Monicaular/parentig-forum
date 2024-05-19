@@ -120,7 +120,7 @@
     </div>
 </div>
             <!-- Delete post confirmation modal -->
-            <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+            <div class="modal fade" id="deletePostModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -134,7 +134,7 @@
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                             <form action="{% url 'delete_post' post.pk %}" method="post">
                                 {% csrf_token %}
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                                <button type="submit" id="confirm-post-delete" class="btn btn-danger">Delete</button>
                             </form>
                         </div>
                     </div>
@@ -156,7 +156,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <button id=confirm-delete type="button" class="btn btn-primary">Delete</button>
+                            <button id=confirm-comm-delete type="button" class="btn btn-primary">Delete</button>
                         </div>
                     </div>
                 </div>
